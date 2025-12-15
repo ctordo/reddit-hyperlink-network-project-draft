@@ -166,6 +166,8 @@
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" />
   {% endif %}
 
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
   {% if page.head-extra %}
     {% for file in page.head-extra %}
       {% include {{ file }} %}

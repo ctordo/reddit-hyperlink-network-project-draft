@@ -152,7 +152,7 @@ body {
   text-align: center;
   font-family: 'Georgia', serif;
   text-shadow: none;
-  max-width: 700px;
+  max-width: 800px;
   line-height: 1.8;
 }
 
@@ -353,7 +353,7 @@ body {
 .section-block ul,
 .section-block ol {
   line-height: 28px;
-  color: #333;
+  color: #1e1e1e;
   font-size: 17px;
   position: relative;
   z-index: 1;
@@ -410,11 +410,13 @@ body {
 }
 
 .section-block img.small {
-  max-width: 250px;
+  width: 30%;
+  max-width: 30%;
 }
 
 .section-block img.medium {
-  max-width: 450px;
+  width: 60%;
+  max-width: 60%;
 }
 
 .section-block img.large {
@@ -437,6 +439,23 @@ body {
 .toxicity-table th {
   text-align: left;
   font-weight: 600;
+}
+
+.property-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    line-height: 1.2; /* compact spacing */
+}
+
+.property-table th, .property-table td {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    text-align: left;
+}
+
+.property-table th {
+    background-color: #f2f2f2;
 }
 
 /* --- Notification boxes --- */

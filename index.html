@@ -26,9 +26,10 @@ sections:
   </div>
   
   <div class="subtitle">
-    Mandated by the ADA organization, a team of five doctors specialized in data-driven diagnosis handled the medical requirements of 
-    patient #CS401: Reddit. This notebook contains all the research and results carried out as part of this 
-    medical consultation.
+    As an unusual patient - Reddit - turns to the ADA laboratory with its medical concerns, 
+    only one team of doctors specialized in data-driven diagnosis anwsers the call: <strong>AdAstra</strong>.
+    
+    This notebook contains all the research and results carried out by the team as part of this medical consultation.
   </div>
   
   <table class="doctors-table">
@@ -329,8 +330,8 @@ sections:
   </p>
 
   <p>
-    To understand which properties meaningfully contribute to negative interactions, we compare normalized mean property values between positive and 
-    negative links. Comparing group means detects systematic differences in linguistic patterns, while normalization accounts for differing scales 
+    To understand which properties meaningfully contribute to negative interactions, <strongorange> we compare normalized mean property values between positive and 
+    negative links</strongorange>. Comparing group means detects systematic differences in linguistic patterns, while normalization accounts for differing scales 
     and distributions across features. Toxicity-related linguistic features are expected to cluster more strongly in negative posts. 
     Identifying features more common in negative interactions ensures alignment with our conceptual model (toxicity requires negativity)
   </p>
@@ -373,10 +374,10 @@ sections:
   </div>
   </div>
 
-  <img src="{{ '/assets/img/zdiffs.png' | relative_url }}" alt="z differences" class="center large">
+  The following figure highlights how textual properties differ between positive and negative links after z-score normalization, emphasizing features with the largest contrasts. 
+  Hovering reveals the underlying property names and quantitative differences.
 
-  <iframe src="assets/interactives/property_diffs.html" width="100%" height="600"></iframe>
-
+  <iframe src="assets/interactives/property_diffs.html" width="100%" style="border: none;"></iframe>
 
   <h4>Combining Features Into the Toxicity Metric</h4>
 
@@ -396,15 +397,48 @@ sections:
     interpretability when working with heterogeneous features and manually chosen weights.
   </p>
 
+  <p>
+    <strong>Final weighted average of toxicity score</strong>
+  </p>
 
+  <table class="property-table">
+      <thead>
+          <tr>
+              <th>Property</th>
+              <th>Weight</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Positive weights (red), descending order -->
+          <tr><td>NEGATIVE_SENTIMENT_CALCULATED_BY_VADER</td><td style="color:red;">5</td></tr>
+          <tr><td>LIWC_SWEAR</td><td style="color:red;">5</td></tr>
+          <tr><td>LIWC_ANGER</td><td style="color:red;">5</td></tr>
+          <tr><td>FRACTION_OF_STOPWORDS</td><td style="color:red;">1</td></tr>
+          <tr><td>LIWC_SOCIAL</td><td style="color:red;">1</td></tr>
+          <tr><td>LIWC_HUMANS</td><td style="color:red;">1</td></tr>
+          <tr><td>LIWC_NEGEMO</td><td style="color:red;">1</td></tr>
+          <tr><td>LIWC_SEXUAL</td><td style="color:red;">1</td></tr>
+  
+          <!-- Negative weights (green) -->
+          <tr><td>LIWC_CAUSE</td><td style="color:green;">-5</td></tr>
+          <tr><td>LIWC_INSIGHT</td><td style="color:green;">-5</td></tr>
+          <tr><td>FRACTION_OF_DIGITS</td><td style="color:green;">-3</td></tr>
+      </tbody>
+  </table>
 
+  <p>
+    This figure visualizes the relative importance of selected properties in the toxicity scoring; slice size reflects coefficient magnitude while color encodes sign. 
+    Hovering over the slices reveals the exact feature name and weight.
+  </p>
+  
+  <iframe src="assets/interactives/weights_slices.html" width="60%" style="border: none;"></iframe>
 
 
   <p>
   Let's visualize our new metric's empirical distribution.
   </p>
 
-  <img src="{{ '/assets/img/zdiffs.png' | relative_url }}" alt="z differences" class="center large">
+  <img src="{{ '/assets/img/score_distrib.png' | relative_url }}" alt="score distrib" class="center large">
 
   <p>
   Theoretically, the score ranges from –1 to 1, but empirically falls within –0.1 to 0.4, reflecting real distributions in Reddit posts. 
@@ -458,7 +492,7 @@ sections:
   <img src="{{ '/assets/img/metriccat.png' | relative_url }}" alt="cat before adj" class="center large">
 
   <div class="box-success">
-    <strong>Great!</strong> We succesfully designed a reliable continuous metric to measure toxicituy intentisy in a message, as well as 
+    <strong>Great!</strong> We succesfully designed a reliable continuous metric to measure toxicity intentisy in a message, as well as 
     a binary classifier that distinguishes significantly toxic messages.
   </div>
   
@@ -585,7 +619,6 @@ sections:
     Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
   </p>
 </section>
-
 
 
 

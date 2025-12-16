@@ -444,12 +444,11 @@ body {
 .property-table {
     border-collapse: collapse;
     width: 100%;
-    font-family: Arial, sans-serif;
     line-height: 1.2; /* compact spacing */
 }
 
 .property-table th, .property-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     padding: 4px 8px;
     text-align: left;
 }

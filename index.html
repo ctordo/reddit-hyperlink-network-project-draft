@@ -21,7 +21,7 @@ sections:
 ---
 
 <section id="intro" class="section-block">  
-  <h2>Introduction au projet</h2>
+  <h1>Introduction au projet</h1>
 
   <h3>Patient description</h3>
 
@@ -103,8 +103,10 @@ sections:
 
 
 <section id="preprocessing" class="section-block">
-  <h2>Data Preprocessing</h2>
+  <h1>Data Preprocessing</h1>
   
+  <h2>Title</h2>
+
   <h3>Subtitle</h3>
 
   <h4>Subsubtitle</h4>
@@ -144,7 +146,7 @@ sections:
   <h4>Definition of toxicity</h4>
 
   <p>
-  Our first fundamental preliminary step is to calculate a reliable and accurate metric of toxicity of each subreddit's post.
+  Our first fundamental preliminary step is to <strong>calculate a reliable and accurate metric of toxicity</strong> of each subreddit's post.
   </p>
   <p>
   We define toxicity as patterns of communication or behavior that create a hostile, disrespectful, or harmful environment for 
@@ -187,7 +189,7 @@ sections:
   </p> 
 
 
-  <h3>Properties that are interesting for capturing toxicity</h3>
+  <h4>Properties capturing toxicity</h4>
 
   <table class="table">
     <thead>
@@ -240,8 +242,48 @@ sections:
     </tbody>
   </table>
 
+  <p> 
+    However, above all these textual properties, we also consider true <strong>negativity</strong> of a post to be a <strong>necessary</strong> 
+    component for it to be toxic.
+  </p> 
 
-  </section>
+  <h4>Why is the VADER score not enough for measuring negativity?</h4>
+
+  </p>
+    The fundamental problem is that none of the 86 properties provides a reliable measure of **emotional negativity** in a post.
+  </p>
+
+  <p>
+    While the VADER scores seemed promising (optimized for social media texts and posts), they mainly work like a LIWC score 
+    and calculate emotion of the **language** that was used (like an advanced lexical repertory of words that are conventionally 
+    considered negative or harmful on social platforms). This cannot be considered an accurate measure of negativity in our context. 
+    For example, some shortfalls of lexical metrics include:
+  </p>
+  <ul>
+    <li>Sarcasm, irony, and context.
+      <li>“Stupid guy” in a link targeting a funny video of a guy slipping </li>
+      <li>“Stupid guy” in a link targeting a video of a political speech </li>
+    </li>
+    <li>Cultural difference in language.
+      <li>Some communities are (by culture) founded on “offensive” language without being toxic. </li>
+      <li>For example, a *CallOfDuty* subreddit will frequently mention terms like "kill" or “assassination”. 
+        These words are not toxic in that community, but could be considered so in other subreddits (ones not related to war or gaming). </li>
+    </li>
+  </ul>
+  <p>
+    Because toxicity in our definition must reflect true negative intent, not just negative words, lexical sentiment proves insufficient.
+  </p>
+
+
+
+
+
+
+
+
+
+
+</section>
 
 
 

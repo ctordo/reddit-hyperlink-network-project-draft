@@ -6,33 +6,15 @@
 
 body {
   font-family: 'Georgia', serif;
-  /* Fond table en bois */
-  background: 
-    linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px),
-    linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139,90,43,.4) 0%, rgba(101,67,33,.4) 100%);
-  background-size: 100px 100px, 100px 100px, 100% 100%;
-  background-color: #8B5A2B;
-  background-image: 
-    repeating-linear-gradient(
-      90deg,
-      #8B5A2B 0px,
-      #A0522D 40px,
-      #8B4513 80px,
-      #654321 120px,
-      #8B5A2B 160px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(101, 67, 33, 0.1) 0px,
-      transparent 2px,
-      transparent 4px
-    );
+  /* Fond avec image bois */
+  background: url('../img/woodenbackground.jpg') center center;
+  background-size: cover;
+  background-attachment: fixed;
   padding: 40px 20px;
   min-height: 100vh;
 }
 
-/* Navigation fixe style post-it */
+/* Navigation fixe style post-it - PLUS LARGE */
 .fixed-nav {
   position: fixed;
   top: 30px;
@@ -45,7 +27,7 @@ body {
     0 4px 6px rgba(0, 0, 0, 0.2),
     inset 0 -2px 3px rgba(0, 0, 0, 0.05);
   z-index: 1000;
-  max-width: 220px;
+  min-width: 280px;
   transform: rotate(1deg);
   transition: transform 0.3s;
 }
@@ -122,9 +104,16 @@ body {
       transparent 24px,
       #d4d4aa 24px,
       #d4d4aa 25px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      #d4d4aa 24px,
+      #d4d4aa 25px
     );
-  background-size: 100% 25px;
-  padding: 30px 60px 50px 60px;
+  background-size: 100% 25px, 25px 100%;
+  padding: 50px 60px;
   margin: 50px 0;
   border-radius: 8px;
   box-shadow: 
@@ -192,15 +181,12 @@ body {
 .section-block p,
 .section-block ul,
 .section-block ol {
-  line-height: 28px;
+  line-height: 25px;
   color: #333;
   font-size: 17px;
   position: relative;
   z-index: 1;
-  margin-bottom: 18px;
-  font-family: 'Segoe Print', 'Comic Sans MS', cursive;
-  text-align: justify;
-  letter-spacing: 0.3px;
+  margin-bottom: 15px;
 }
 
 .section-block strong {
@@ -235,7 +221,7 @@ body {
   height: auto;
   margin: 25px 0;
   border-radius: 8px;
-  box-shadow: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: block;
 }
 
@@ -245,11 +231,11 @@ body {
 }
 
 .section-block img.small {
-  max-width: 150px;
+  max-width: 300px;
 }
 
 .section-block img.medium {
-  max-width: 250px;
+  max-width: 500px;
 }
 
 /* Responsive */

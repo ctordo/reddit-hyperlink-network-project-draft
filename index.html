@@ -68,7 +68,7 @@ sections:
 <!-- #################################################################################################################################### -->
 
 <section id="intro" class="section-block">  
-  <h1>Projet introduction</h1>
+  <h1>Introduction</h1>
 
   <h3>Patient description</h3>
 
@@ -208,7 +208,7 @@ sections:
   <div class="box-note box-collapsible">
   <div class="box-header">
     <div>
-      <strong>Note:</strong> These properties cover a wide range of linguistic features. What exactly do they capture?
+      <strong>Note:</strong> Learn more about what the 86 features capture:
     </div>
     <button class="box-toggle" aria-label="Toggle details"></button>
   </div>
@@ -235,7 +235,7 @@ sections:
   </div>
 
   <p> 
-    Below are some metrics that are pormising to use, based only on the qualitative defintion of toxicity.
+    Below are some metrics that are promising to use, based on our qualitative defintion of toxicity.
   </p> 
 
 
@@ -400,8 +400,9 @@ sections:
 
 
 
-
+  <p>
   Let's visualize our new metric's empirical distribution.
+  </p>
 
   <img src="{{ '/assets/img/zdiffs.png' | relative_url }}" alt="z differences" class="center large">
 
@@ -420,16 +421,20 @@ sections:
   </p>
 
   <div class="box-warning">
-    <code>TOXICITY_CAT</code>: Categorical metric that classifies posts as non-toxic (0) or toxic (1), after passing a threshold on <code>TOXICITY_SCORE</code>
+    <code>TOXICITY_CAT</code>: Categorical metric that classifies posts as non-toxic (0) or toxic (1)
   </div>
 
-  The threshod above which messages are flagged as toxic is <strong>the quantile-75 of the toxicity scores distribution</strong>. 
-  That is, .
+
+  <p>
+    This binary metric is obtaidned by passing a threshold on <code>TOXICITY_SCORE</code>. Specifically, the threshod above which messages 
+    are flagged as toxic is <strong>the quantile-75 of the toxicity scores distribution</strong>. 
+    That is, we mark as significantly toxic the top 25% messages with highest score.
+  </p>
 
 <div class="box-note box-collapsible">
   <div class="box-header">
     <div>
-      <strong>Note:</strong> We mark as significantly toxic the top 25% messages with highest score. What motivates our choice?
+      <strong>Note:</strong>  Why is the quantile-75 of the distribution interpretable and consistent?
     </div>
     <button class="box-toggle" aria-label="Toggle details"></button>
   </div>
@@ -450,11 +455,22 @@ sections:
   </div>
   </div>
 
+  <img src="{{ '/assets/img/metriccat.png' | relative_url }}" alt="cat before adj" class="center large">
 
+  <div class="box-success">
+    <strong>Great!</strong> We succesfully designed a reliable continuous metric to measure toxicituy intentisy in a message, as well as 
+    a binary classifier that distinguishes significantly toxic messages.
+  </div>
+  
+  <p>
+    We now use these two fundamental metrics to derive advcanded and case-specific indicators to later tackle specific tasks. 
+  </p>
 
+  <h2>Supporting and derived metrics</h2>
 
-
-
+  <p>
+    !! DEMANDER A CEDRIC SI VRAIMENT NECESSAIRE !! 
+  </p>
 
 </section>
 

@@ -90,7 +90,7 @@ body {
 
 /* Contenu principal */
 .content {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding-right: 280px;
 }
@@ -418,7 +418,8 @@ body {
 }
 
 .section-block img.large {
-  max-width: 900px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .toxicity-table {
@@ -474,8 +475,8 @@ body {
 }
 
 .box-success {
-  background-color: #c1fec1;
-  border-left-color: #3CB371;
+  background-color: #ddffdd;
+  border-left-color: #48ca83;
 }
 
 

@@ -96,13 +96,21 @@ body {
 }
 
 /* Page de couverture */
+/* Page de couverture */
 .cover-page {
   width: 100%;
   max-width: 1100px;
-  aspect-ratio: 1 / 1.5;
-  background: url('../img/leather.jpg') center center;
-  background-size: cover;
+  background: #1a2847;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 55, 0.15) 2px,
+      rgba(212, 175, 55, 0.15) 4px
+    );
   margin: 50px 0;
+  padding: 80px 60px;
   border-radius: 8px;
   box-shadow: 
     0 6px 16px rgba(0, 0, 0, 0.3),
@@ -111,9 +119,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 60px;
+  gap: 40px;
   scroll-margin-top: 20px;
+  border: 3px dashed rgba(212, 175, 55, 0.4);
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 2px dashed rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 .cover-page .title {
@@ -121,67 +141,135 @@ body {
   font-weight: bold;
   color: #D4AF37;
   text-align: center;
-  font-family: 'Georgia', serif;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 30px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 .cover-page .subtitle {
-  font-size: 20px;
+  font-size: 22px;
   color: #D4AF37;
   text-align: center;
-  font-family: 'Georgia', serif;
-  font-style: italic;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   max-width: 700px;
-  line-height: 1.6;
-  margin-bottom: 80px;
+  line-height: 1.8;
 }
 
 .cover-page .doctors-table {
   width: 100%;
   max-width: 900px;
   border-collapse: collapse;
-  margin-bottom: auto;
+  margin: 20px 0;
 }
 
 .cover-page .doctors-table td {
   text-align: center;
   padding: 15px 10px;
-  color: #D4AF37;
-  font-family: 'Georgia', serif;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  vertical-align: top;
 }
 
 .cover-page .doctors-table .doctor-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  padding-bottom: 8px;
+  color: #D4AF37;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 15px;
 }
 
-.cover-page .doctors-table .doctor-id {
-  font-size: 16px;
-  font-family: 'Courier New', monospace;
+.cover-page .doctors-table .doctor-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #D4AF37;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .cover-page .footer {
   text-align: center;
   color: #D4AF37;
-  font-family: 'Georgia', serif;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  margin-top: auto;
+  margin-top: 40px;
 }
 
 .cover-page .footer .class {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .cover-page .footer .date {
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
+}
+
+
+/* Post-it vert pour les liens - EN BAS À DROITE */
+.links-postit {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #c1ff9c;
+  background: linear-gradient(135deg, #c1ff9c 0%, #b5f89a 100%);
+  padding: 20px 25px;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  min-width: 200px;
+  transform: rotate(-1deg);
+  transition: transform 0.3s;
+}
+
+.links-postit:hover {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.25),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.links-postit::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 15px;
+  background: rgba(180, 200, 150, 0.4);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.links-postit ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-postit li {
+  margin: 12px 0;
+}
+
+.links-postit a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: block;
+  padding: 5px 8px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.links-postit a:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 

@@ -2,8 +2,6 @@
 layout: project
 title: Reddit Hyperlink Network Project
 sections:
-  - id: cover
-    title: Cover
   - id: intro
     title: Introduction
   - id: preprocessing
@@ -33,18 +31,26 @@ sections:
   
   <table class="doctors-table">
     <tr>
-      <td class="doctor-name">Dr. Smith</td>
-      <td class="doctor-name">Dr. Johnson</td>
-      <td class="doctor-name">Dr. Williams</td>
-      <td class="doctor-name">Dr. Brown</td>
-      <td class="doctor-name">Dr. Davis</td>
-    </tr>
-    <tr>
-      <td class="doctor-id">123456</td>
-      <td class="doctor-id">234567</td>
-      <td class="doctor-id">345678</td>
-      <td class="doctor-id">456789</td>
-      <td class="doctor-id">567890</td>
+      <td>
+        <img src="{{ '/assets/img/photodoc1.jpg' | relative_url }}" alt="Dr. Smith" class="doctor-photo">
+        <div class="doctor-name">Dr. Smith</div>
+      </td>
+      <td>
+        <img src="{{ '/assets/img/photodoc2.jpg' | relative_url }}" alt="Dr. Johnson" class="doctor-photo">
+        <div class="doctor-name">Dr. Johnson</div>
+      </td>
+      <td>
+        <img src="{{ '/assets/img/photodoc3.jpg' | relative_url }}" alt="Dr. Williams" class="doctor-photo">
+        <div class="doctor-name">Dr. Williams</div>
+      </td>
+      <td>
+        <img src="{{ '/assets/img/photodoc4.jpg' | relative_url }}" alt="Dr. Brown" class="doctor-photo">
+        <div class="doctor-name">Dr. Brown</div>
+      </td>
+      <td>
+        <img src="{{ '/assets/img/photodoc5.jpg' | relative_url }}" alt="Dr. Davis" class="doctor-photo">
+        <div class="doctor-name">Dr. Davis</div>
+      </td>
     </tr>
   </table>
   
@@ -199,8 +205,9 @@ sections:
     <code>TOXICITY_SCORE</code>: Continuous metric that measures the toxicity intensity in a subreddit post
   </div>
 
-  
-  <strong>Now comes the fundamental question: how can we detect and quantify toxicity in a subreddit post?</strong>
+  <p>
+    <strong>Now comes the fundamental question: how can we detect and quantify toxicity in a subreddit post?</strong>
+  </p>
 
   <h4>86 textual properties</h4>
 
@@ -285,7 +292,10 @@ sections:
     </tbody>
   </table>
 
-  <p> 
+  <p>
+
+  </p>
+  <p>
     However, above all these textual properties, we also consider true <strong>negativity</strong> of a post to be a <strong>necessary</strong> 
     component for it to be toxic.
   </p> 

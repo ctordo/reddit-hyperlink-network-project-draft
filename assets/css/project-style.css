@@ -364,6 +364,11 @@ body {
 
 .section-block strong {
   font-weight: bold;
+  color: #121212;
+}
+
+.section-block strongorange {
+  font-weight: bold;
   color: #eb2b28;
 }
 

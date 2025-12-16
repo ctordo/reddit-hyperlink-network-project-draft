@@ -65,19 +65,19 @@ sections:
 
 
 <section id="intro" class="section-block">  
-  <h1>Introduction au projet</h1>
+  <h1>Projet introduction</h1>
 
   <h3>Patient description</h3>
 
   <img src="{{ '/assets/img/redditlogo.png' | relative_url }}" alt="Reddit Logo" class="center medium">
   
   <p>
-    <strong>Reddit</strong> is a large, community-driven social media platform <strong>structured around user-created forums known as subreddits.</strong> 
+    <strongorange>Reddit</strongorange> is a large, community-driven social media platform <strong>structured around user-created forums known as subreddits.</strong> 
     Each subreddit centers on a specific topic (ranging from news, politics, and science to niche hobbies and pop-culture 
     interests) and functions as its own semi-autonomous community with distinct norms, moderators, and posting cultures. 
     Interactions on Reddit occur primarily through posts and comments, and one subreddit can reference another by including 
-    a hyperlink within the text or title of a post. These cross-subreddit links form what is known as the <strong>Reddit Hyperlink 
-    Network</strong>: a web of directed connections that reveals how information, discussions, and community attention flow across the 
+    a hyperlink within the text or title of a post. These cross-subreddit links form what is known as the <strongorange>Reddit Hyperlink 
+    Network</strongorange>: a web of directed connections that reveals how information, discussions, and community attention flow across the 
     platform.
   </p>
   
@@ -202,13 +202,14 @@ sections:
   and linguistic markers of aggression or harmful intent. Reddit, being a large, anonymous, and heterogeneous platform, often exhibits these 
   patterns, making it an appropriate setting for a linguistic toxicity metric.
   </p>
-
+  <p>
   <div class="box-note">
     <code>TOXICITY_SCORE</code>: Continuous metric that measures the toxicity intensity in a subreddit post
   </div>
+  </p>
 
   <p>
-    <strong>Now comes the fundamental question: how can we detect and quantify toxicity in a subreddit post?</strong>
+    <strongorange>So, how can we detect and quantify toxicity?</strongorange>
   </p>
 
   <h4>86 textual properties</h4>
@@ -325,7 +326,15 @@ sections:
     Because toxicity in our definition must reflect true negative intent, not just negative words, lexical sentiment proves insufficient.
   </p>
 
+  <h4>Good news: <code>LINK_SENTIMENT</code></h4>
 
+  <p>
+    <code>LINK_SENTIMENT</code> is derived using a supervised sentiment classifier trained on manually labeled Reddit data. 
+    When labeling, the authors have taken into account their human judgement of context, irony etc. in addition of a purely lexical analysis. 
+    So this binary sentiment classifier is designed specifically for inter-subreddit interactions and is our most reliable (categorical) 
+    measure for pure negativity.
+  </p>
+  
 
 
 

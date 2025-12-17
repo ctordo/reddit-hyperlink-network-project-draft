@@ -2,8 +2,8 @@
 layout: project
 title: Reddit Hyperlink Network Project
 sections:
-  - id: intro
-    title: Introduction
+  - id: context
+    title: Context
   - id: preprocessing
     title: Data preprocessing
   - id: metric
@@ -66,12 +66,22 @@ sections:
 <!-- INTRO -->
 <!-- #################################################################################################################################### -->
 
-<section id="intro" class="section-block">  
-  <h1>Introduction</h1>
+<section id="context" class="section-block">  
+  <h1>Context</h1>
 
   <h3>Patient description</h3>
 
-  <img src="{{ '/assets/img/redditlogo.png' | relative_url }}" alt="Reddit Logo" class="center small">
+
+  <div class="box-note box-collapsible">
+    <div class="box-header">
+      <div>
+        <strong>Note - </strong>If you actually don't know what Reddit is...
+      </div>
+      <button class="box-toggle" aria-label="Toggle details"></button>
+    </div>
+    
+    <div class="box-content">
+      <img src="{{ '/assets/img/redditlogo.png' | relative_url }}" alt="Reddit Logo" class="center small">
   
   <p>
     <strongorange>Reddit</strongorange> is a large, community-driven social media platform <strong>structured around user-created forums known as subreddits.</strong> 
@@ -82,6 +92,11 @@ sections:
     Network</strongorange>: a web of directed connections that reveals how information, discussions, and community attention flow across the 
     platform.
   </p>
+    </div>
+  </div>
+
+
+  
   
   <h3>Reason of consultation</h3>
   
@@ -113,7 +128,9 @@ sections:
     <li>Research question</li>
   </ul>
   
-  
+
+
+
   <h3>Methodology overview</h3>
 
   <ol>
@@ -192,7 +209,7 @@ sections:
   <div class="box-note box-collapsible">
     <div class="box-header">
       <div>
-        <strong>Note:</strong>  Get more details about preprocessing and cleaning steps:
+        <strong>Note:</strong>  Learn more about preprocessing and cleaning steps here!
       </div>
       <button class="box-toggle" aria-label="Toggle details"></button>
     </div>
@@ -253,8 +270,6 @@ sections:
   <p>
   Our first fundamental preliminary step is to <strong>calculate a reliable and accurate metric of toxicity</strong> of each subreddit's post.
   </p>
-
-  <h2>Principal toxicity metrics</h2>
   
   <h3>Toxicity score</h3>
 
@@ -613,17 +628,6 @@ sections:
     <strong>Great!</strong> We succesfully designed a reliable continuous metric to measure toxicity intentisy in a message, as well as 
     a binary classifier that distinguishes significantly toxic messages.
   </div>
-  
-  <p>
-    We now use these two fundamental metrics to derive advcanded and case-specific indicators to later tackle specific tasks. 
-  </p>
-
-  <h2>Supporting and derived metrics</h2>
-
-  <p>
-    !! DEMANDER A CEDRIC SI VRAIMENT NECESSAIRE !! 
-  </p>
-
 </section>
 
 

@@ -202,10 +202,8 @@ sections:
       <p>
         A key characteristic of the hyperlink datasets is the presence of a single aggregated column, <code>PROPERTIES</code>, 
         which encodes a wide range of textual, stylistic, and linguistic features extracted from the corresponding text. 
-        These features are discussed in more detail in the next section when defining the toxicity score.
-      </p>
-      <p>
-        During preprocessing, the PROPERTIES column is split into individual columns, each corresponding to a specific feature. 
+        These features are discussed in more detail in the next section when defining the toxicity score. 
+        During preprocessing, the <code>PROPERTIES</code> column is split into individual columns, each corresponding to a specific feature. 
         All values are explicitly converted to numeric types, and non-parsable values are replaced with missing values. 
         This step transforms the compact representation into a structured and interpretable feature space.
       </p>
@@ -221,20 +219,18 @@ sections:
         Subreddit identifiers are standardized by converting them to lowercase. This normalization step prevents inconsistencies 
         caused by differences in capitalization and ensures reliable matching with other datasets, particularly the subreddit embeddings.
       </p>
-      <strong>Formatting and Preparation of Embeddings</strong>
-      <p>
-        The embeddings datasets are provided without column headers. During preprocessing, explicit column names are assigned to improve 
-        readability and compatibility with analysis pipelines. The first column is an identifier, while the remaining columns correspond to 
-        embedding dimensions labeled sequentially (e.g., <code>emb_0</code>, <code>emb_1</code>, etc.).
-      </p>
-      <p>
-        No further transformations are applied to the embedding values, as they are assumed to be already normalized and suitable 
-        for direct use in downstream tasks such as similarity computation or model input.
-      </p>
       <strong>Timestamp Formatting</strong>
       <p>
         Interaction timestamps are converted into a datetime format to enable chronological analysis and time-based aggregation. 
         Once converted, the dataset is sorted in ascending temporal order to ensure a consistent timeline.
+      </p>
+      <strong>Formatting and Preparation of Embeddings</strong>
+      <p>
+        The embeddings datasets are provided without column headers. During preprocessing, explicit column names are assigned to improve 
+        readability and compatibility with analysis pipelines. The first column is an identifier, while the remaining columns correspond to 
+        embedding dimensions labeled sequentially (e.g., <code>emb_0</code>, <code>emb_1</code>, etc.). No further transformations 
+        are applied to the embedding values, as they are assumed to be already normalized and suitable 
+        for direct use in downstream tasks such as similarity computation or model input.
       </p>
       <strong>Data Quality Assessment</strong>
       <p>

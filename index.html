@@ -2,10 +2,8 @@
 layout: project
 title: Reddit Hyperlink Network Project
 sections:
-  - id: context
-    title: Context
-  - id: preprocessing
-    title: Data preprocessing
+  - id: preparation
+    title: Preparation
   - id: metric
     title: Toxicity metrics
   - id: propagation
@@ -66,11 +64,30 @@ sections:
 <!-- INTRO -->
 <!-- #################################################################################################################################### -->
 
-<section id="context" class="section-block">  
-  <h1>Context</h1>
+<section id="preparation" class="section-block">  
+  <h1>Preparation</h1>
 
-  <h3>Patient description</h3>
-
+  <!-- #################################################################################################################################### -->
+  <h3>Context</h3>
+  <p>
+    Reddit is often described as a platform or a collection of communities. In our study, we invite you to see it differently: <strongorange>as a vast archipelago</strongorange>. 
+    Thousands of islands (subreddits) each with their own cultures, norms, and languages, are connected by invisible currents of hyperlinks, references, and shared users. 
+    Most days, these currents carry harmless conversation. But sometimes, something else travels with them...
+  </p>
+  <p>
+    Earlier this year, several monitoring organizations raised an alert: <strong>patterns of toxic behavior appeared to be spreading across Reddit</strong> in ways that 
+    resembled contagion rather than coincidence. Hostile language, harassment, and inflammatory content were no longer confined to isolated communities. 
+  </p>
+  <p>
+    This is where team <strong>AdAstra</strong> enters the story. We are a group of five data analysts tasked with an unusual mission: to investigate the epidemiology of toxicity 
+    in Reddit’s hyperlink network. Our goal is not to moralize or moderate, but to observe, map, and understand. How does toxicity propagate? 
+    Which communities act as sources, sinks, or bridges? Are there identifiable patterns, pathways, or risk factors that explain its spread?
+  </p>
+  <p>
+    This notebook presents our research and results as we navigate the Reddit archipelago, examine clusters of related communities, and track how toxic behavior emerges and 
+    propagates through the network. The challenge is large, the system complex, and the stakes real. But with data as our compass and curiosity as our fuel, 
+    we set out to understand how toxicity travels and what its patterns reveal about the hidden geography of online discourse.
+  </p>   
 
   <div class="box-note box-collapsible">
     <div class="box-header">
@@ -96,169 +113,94 @@ sections:
   </div>
 
 
-  
-  
-  <h3>Reason of consultation</h3>
-  
-  <p>
-    Reddit comes in for consultation with a recurring concern: <strong>toxicity</strong>. Toxicity refers to patterns of communication 
-    or behavior that generate hostility, disrespect, or harm among participants. Toxic interactions can take many forms, including 
-    personal insults, harassment, hate speech, persistent negativity, or attempts to provoke conflict. Such behaviors undermine the 
-    quality of discourse, discourage constructive participation, and can gradually erode the health of online communities.
-  </p>
-
-  <p>
-  The architecture of Reddit makes it particularly susceptible to toxic dynamics: users can remain pseudonymous with minimal barriers 
-  to participation, which lowers the social cost of engaging in hostile behavior. Subreddits vary widely in moderation strictness and 
-  community norms, meaning that toxicity can flourish unevenly, concentrate in certain spaces, or spill over into others through 
-  cross-community interactions. These characteristics make Reddit an especially compelling platform for studying how toxic behavior 
-  emerges, propagates, and interacts with the structural features of the network.
-
-  </p>
-  
-  <h3>Objective of consultation</h3>
+  <!-- #################################################################################################################################### -->
+  <h3>Our Tools for the Mission</h3>
   
   <p>
-    State research questions here:
+    Every outbreak investigation begins with instruments: ours came in the form of data.
   </p>
-
   <ul>
-    <li>Research question</li>
-    <li>Research question</li>
-    <li>Research question</li>
+    <li><strong>Reddit Hyperlink Network (Post Bodies): </strong>A directed record of how subreddits reference one another through hyperlinks embedded in 
+        post content, annotated with time, sentiment classification, and 86 textual features that allow us to track toxic interactions as they occur.</li>
+    <li><strong>Reddit Hyperlink Network (Post Titles): </strong>A complementary dataset capturing the same type of interactions, but originating from post titles</li>
+    <li><strong>Subreddit Embeddings: </strong>A set of 300-dimensional semantic representations for each subreddit, encoding thematic similarity and latent relationships between communities beyond explicit links.</li>
   </ul>
-  
-
-
-
-  <h3>Methodology overview</h3>
-
-  <ol>
-    <li>Exploring, preprocessing and cleaning data</li>
-    <li>Designing a metric to detect and quantify toxicity</li>
-    <li>Classifying different toxicity propagation styles</li>
-    <li>Parallelizing toxicity styles with subreddits' thematics</li>
-    <li>In-depth case studies</li>
-  </ol>
-  
-  <p>
-    Through these sequential approaches, the project seeks to build a richer understanding of toxicity on Reddit by 
-    connecting behavioral patterns with the structural and thematic dimensions of the platform’s hyperlink network.
-  </p>
-
-</section>
-
-<!-- #################################################################################################################################### -->
-<!-- PREPROCESSING -->
-<!-- #################################################################################################################################### -->
-
-<section id="preprocessing" class="section-block">
-  <h1>Data Preprocessing</h1>
-  
-  <p>
-    Before conducting any analysis, it is essential to clearly understand the data being used and to apply appropriate 
-    formatting and cleaning steps. This section presents the datasets considered in this project and describes the preprocessing 
-    operations applied to prepare them for analysis.
-  </p>
-
-  <h3>Reddit Hyperlink Network Datasets</h3>
-
-  <p>
-    The main data used in this study comes from the Reddit Hyperlink Network, which models interactions between subreddits 
-    through hyperlinks embedded in Reddit posts. Two complementary datasets are used: one dataset containing hyperlinks appearing in the 
-    body of posts, and one dataset containing hyperlinks appearing in post titles.
-  </p>
-  <p>
-    Both datasets share the same structure. Each row corresponds to a directed interaction from a source subreddit to a 
-    target subreddit at a specific point in time. In addition to the subreddit identifiers, each interaction includes a timestamp, 
-    a binary sentiment label (±1), and 86 properties describing the textual content from which the hyperlink originates.
-  </p>
-  <p>  
-    In the context of this project, the focus is on the toxicity of the message, regardless of whether the hyperlink appears in the 
-    body or the title of a post. As a result, the two datasets are concatenated into a single dataframe and then reordered 
-    chronologically.
-  </p>
-  <p>
-    <a href="http://snap.stanford.edu/data/soc-RedditHyperlinks.html"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="color: #003366; font-weight: 500; text-decoration: underline;">
-      Source
-    </a>
-  </p>
-  
-  <h3>Subreddits Embeddings</h3>
-  <p>
-    In addition to the hyperlink network, this project uses precomputed subreddit embeddings to incorporate semantic 
-    information into the analysis. Each row in this dataset represents a subreddit encoded as a dense numerical vector 
-    of dimension 300. These embeddings capture latent semantic relationships between subreddits learned from Reddit 
-    activity and provide a complementary perspective to the explicit hyperlink network. 
-  </p>
-  <p>
-    The embeddings are not directly used at this stage but will be leveraged in later sections of the project.
-  </p>
-  <p>
-    <a href="https://snap.stanford.edu/data/web-RedditEmbeddings.html"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="color: #003366; font-weight: 500; text-decoration: underline;">
-      Source
-    </a>
-  </p>
 
   <div class="box-note box-collapsible">
     <div class="box-header">
       <div>
-        <strong>Note:</strong>  Learn more about preprocessing and cleaning steps here!
+        <strong>Note:</strong>  If you want a bit more details on the datasets' structures...
       </div>
       <button class="box-toggle" aria-label="Toggle details"></button>
     </div>
     
     <div class="box-content">
-      <strong>Expanding Hyperlink Properties</strong>
+      <h4>Reddit Hyperlink Network Datasets</h4>
       <p>
-        A key characteristic of the hyperlink datasets is the presence of a single aggregated column, <code>PROPERTIES</code>, 
-        which encodes a wide range of textual, stylistic, and linguistic features extracted from the corresponding text. 
-        These features are discussed in more detail in the next section when defining the toxicity score. 
-        During preprocessing, the <code>PROPERTIES</code> column is split into individual columns, each corresponding to a specific feature. 
-        All values are explicitly converted to numeric types, and non-parsable values are replaced with missing values. 
-        This step transforms the compact representation into a structured and interpretable feature space.
+        <a href="http://snap.stanford.edu/data/soc-RedditHyperlinks.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color: #003366; font-weight: 500; text-decoration: underline;">
+          Source
+        </a>
       </p>
-      <strong>Merging Body and Title Datasets</strong>
       <p>
-        The body and title datasets are merged into a single interaction table. To preserve information about the origin of 
-        each interaction, a new categorical variable, <code>TYPE</code>, is added to indicate whether the hyperlink comes 
-        from a post body or a post title. 
+        The Reddit Hyperlink Network models interactions between subreddits through hyperlinks embedded in Reddit posts. 
+        Two complementary datasets are used: one dataset containing hyperlinks appearing in the 
+        body of posts, and one dataset containing hyperlinks appearing in post titles.
       </p>
-
-      <strong>ID Standardization</strong>
       <p>
-        Subreddit identifiers are standardized by converting them to lowercase. This normalization step prevents inconsistencies 
-        caused by differences in capitalization and ensures reliable matching with other datasets, particularly the subreddit embeddings.
+        Both datasets share the same structure. Each row corresponds to a directed interaction from a source subreddit to a 
+        target subreddit at a specific point in time. In addition to the subreddit identifiers, each interaction includes a timestamp, 
+        a binary sentiment label (±1), and 86 properties describing the textual content from which the hyperlink originates.
       </p>
-      <strong>Timestamp Formatting</strong>
-      <p>
-        Interaction timestamps are converted into a datetime format to enable chronological analysis and time-based aggregation. 
-        Once converted, the dataset is sorted in ascending temporal order to ensure a consistent timeline.
+      <p>  
+        In the context of this project, the focus is on the toxicity of the message, regardless of whether the hyperlink appears in the 
+        body or the title of a post. As a result, the two datasets are concatenated into a single dataframe and then reordered 
+        chronologically.
       </p>
-      <strong>Formatting and Preparation of Embeddings</strong>
+    
+      
+      <h4>Subreddits Embeddings</h4>
       <p>
-        The embeddings datasets are provided without column headers. During preprocessing, explicit column names are assigned to improve 
-        readability and compatibility with analysis pipelines. The first column is an identifier, while the remaining columns correspond to 
-        embedding dimensions labeled sequentially (e.g., <code>emb_0</code>, <code>emb_1</code>, etc.). No further transformations 
-        are applied to the embedding values, as they are assumed to be already normalized and suitable 
-        for direct use in downstream tasks such as similarity computation or model input.
+        <a href="https://snap.stanford.edu/data/web-RedditEmbeddings.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color: #003366; font-weight: 500; text-decoration: underline;">
+          Source
+        </a>
       </p>
-      <strong>Data Quality Assessment</strong>
       <p>
-        Basic data quality checks are performed on both the interaction dataset and the embeddings datasets. These checks include 
-        inspecting dataset dimensions, counting missing values, and identifying duplicate rows. Rather than removing data at this 
-        stage, these diagnostics are used to inform later modeling choices and to highlight potential limitations of the datasets.
+        In addition to the hyperlink network, this project uses precomputed subreddit embeddings to incorporate semantic 
+        information into the analysis. Each row in this dataset represents a subreddit encoded as a dense numerical vector 
+        of dimension 300. These embeddings capture latent semantic relationships between subreddits learned from Reddit 
+        activity and provide a complementary perspective to the explicit hyperlink network. 
       </p>
     </div>
   </div>
 
+  Before tracing any outbreak, we needed to understand the terrain. Using the subreddit embeddings, we immediately projected Reddit into a two-dimensional space, 
+  transforming an abstract network into a navigable landscape of clustered islands and thematic regions. For the first time, the scale of the challenge became visible.
+  
+  <img src="{{ '/assets/img/subredditembeddingsinit.png' | relative_url }}" alt="subreddit embeddings" class="center large">
+
+  <p>
+  With the map in hand and our instruments ready, we were finally prepared to launch the mission!
+  </p>
+  
+  <!-- #################################################################################################################################### -->
+  <h3>Methodology overview</h3>
+
+  <ol>
+    <li>Designing a metric to detect and quantify toxicity</li>
+    <li>Classifying different toxicity propagation styles</li>
+    <li>Mapping propagation styles to reddit space</li>
+    <li>In-depth case studies</li>
+  </ol>
+  
 </section>
+
+
 
 <!-- #################################################################################################################################### -->
 <!-- METRICS -->
@@ -390,17 +332,20 @@ sections:
   </table>
 
   <p>
-
-  </p>
-  <p>
     However, above all these textual properties, we also consider true <strong>negativity</strong> of a post to be a <strong>necessary</strong> 
     component for it to be toxic.
   </p> 
 
-  <h4>Why is the VADER score not enough for measuring negativity?</h4>
-
-  <p>
-    The fundamental problem is that none of the 86 properties provides a reliable measure of <strong>emotional negativity</strong> in a post. 
+  <div class="box-warning box-collapsible">
+  <div class="box-header">
+    <div>
+      But none of these 86 properties actually measure <strong>emotional negativity</strong>...
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+  </div>
+  
+  <div class="box-content">
+    <p>
     While the VADER scores seemed promising (optimized for social media texts and posts), they mainly work like a LIWC score 
     and calculate emotion of the <strong>language</strong> that was used (like an advanced lexical repertory of words that are conventionally 
     considered negative or harmful on social platforms). This cannot be considered an accurate measure of negativity in our context. 
@@ -416,6 +361,9 @@ sections:
   <p>
     Because toxicity in our definition must reflect true negative intent, not just negative words, lexical sentiment proves insufficient.
   </p>
+  </div>
+  </div>
+  
 
   <h4>Good news: <code>LINK_SENTIMENT</code> helps!</h4>
 
@@ -437,10 +385,10 @@ sections:
   by ensuring that we later select variables that are consistent with the requirement of negativity in toxicity.
   </p>
   
-  <div class="box-note box-collapsible">
+  <div class="box-remark box-collapsible">
   <div class="box-header">
     <div>
-      <strong>Note:</strong> We select a z-difference threshold of 0.25, which retains ~20 properties. Why?
+      <strong>Remark - </strong>We select a z-difference threshold of 0.25, which retains ~20 properties. Why?
     </div>
     <button class="box-toggle" aria-label="Toggle details"></button>
   </div>
@@ -578,7 +526,7 @@ sections:
 <div class="box-note box-collapsible">
   <div class="box-header">
     <div>
-      <strong>Note:</strong>  Why is the quantile-75 of the distribution interpretable and consistent?
+      <strong>Remark - </strong>Why is the quantile-75 of the distribution interpretable and consistent?
     </div>
     <button class="box-toggle" aria-label="Toggle details"></button>
   </div>

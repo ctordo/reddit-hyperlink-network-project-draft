@@ -100,7 +100,7 @@ body {
 .cover-page {
   width: 100%;
   max-width: 1100px;
-  background: #1a2847;
+  background: #e2f0f0;
   background-image: 
     repeating-linear-gradient(
       0deg,
@@ -121,7 +121,7 @@ body {
   align-items: center;
   gap: 40px;
   scroll-margin-top: 20px;
-  border: 3px dashed rgba(212, 175, 55, 0.4);
+  border: 3px dashed rgba(84, 32, 32, 0.4);
 }
 
 .cover-page::before {
@@ -139,7 +139,7 @@ body {
 .cover-page .title {
   font-size: 54px;
   font-weight: bold;
-  color: #D4AF37;
+  color: #19191e;
   text-align: center;
   font-family: 'Georgia', serif;
   text-shadow: none;
@@ -148,7 +148,7 @@ body {
 
 .cover-page .subtitle {
   font-size: 20px;
-  color: #D4AF37;
+  color: #19191e;
   text-align: center;
   font-family: 'Georgia', serif;
   text-shadow: none;
@@ -172,7 +172,7 @@ body {
 .cover-page .doctors-table .doctor-name {
   font-size: 16px;
   font-weight: 600;
-  color: #D4AF37;
+  color: #19191e;
   font-family: 'Georgia', serif;
   text-shadow: none;
   margin-top: 15px;
@@ -183,13 +183,13 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #D4AF37;
+  border: 2px solid #19191e;
   box-shadow: none;
 }
 
 .cover-page .footer {
   text-align: center;
-  color: #D4AF37;
+  color: #19191e;
   font-family: 'Georgia', serif;
   text-shadow: none;
   margin-top: 40px;

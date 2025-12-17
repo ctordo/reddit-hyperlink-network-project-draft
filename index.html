@@ -138,24 +138,58 @@ sections:
 <section id="preprocessing" class="section-block">
   <h1>Data Preprocessing</h1>
   
-  <h2>Title</h2>
+  <p>
+    Before conducting any analysis, it is essential to clearly understand the data being used and to apply appropriate 
+    formatting and cleaning steps. This section presents the datasets considered in this project and describes the preprocessing 
+    operations applied to prepare them for analysis.
+  </p>
 
-  <h3>Subtitle</h3>
-
-  <h4>Subsubtitle</h4>
+  <h3>Reddit Hyperlink Network Datasets</h3>
 
   <p>
-    AAA
+    The main data used in this study comes from the Reddit Hyperlink Network, which models interactions between subreddits 
+    through hyperlinks embedded in Reddit posts. Two complementary datasets are used:
+  </p>
+  <ul>
+    <li>One dataset containing hyperlinks appearing in the body of posts.</li>
+    <li>One dataset containing hyperlinks appearing in post titles. </li>
+  </ul>
+  <p>
+    Both datasets share the same structure. Each row corresponds to a directed interaction from a source subreddit to a 
+    target subreddit at a specific point in time. In addition to the subreddit identifiers, each interaction includes a timestamp, 
+    a binary sentiment label (±1), and 86 properties describing the textual content from which the hyperlink originates.
+  </p>
+  <p>  
+    In the context of this project, the focus is on the toxicity of the message, regardless of whether the hyperlink appears in the 
+    body or the title of a post. As a result, the two datasets are concatenated into a single dataframe and then reordered 
+    chronologically.
+  </p>
+  <p>
+    <a href="http://snap.stanford.edu/data/soc-RedditHyperlinks.html"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="color: #003366; font-weight: 500; text-decoration: underline;">
+      Source
+    </a>
   </p>
   
-  <h3>Subtitle</h3>
+  <h3>Subreddits Embeddings</h3>
   <p>
-    BBB
+    In addition to the hyperlink network, this project uses precomputed subreddit embeddings to incorporate semantic 
+    information into the analysis. Each row in this dataset represents a subreddit encoded as a dense numerical vector 
+    of dimension 300. These embeddings capture latent semantic relationships between subreddits learned from Reddit 
+    activity and provide a complementary perspective to the explicit hyperlink network. 
   </p>
-  
-  <h3>Subtitle</h3>
   <p>
-    CCC
+    The embeddings are not directly used at this stage but will be leveraged in later sections of the project.
+  </p>
+  <p>
+    <a href="https://snap.stanford.edu/data/web-RedditEmbeddings.html"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="color: #003366; font-weight: 500; text-decoration: underline;">
+      Source
+    </a>
   </p>
 </section>
 

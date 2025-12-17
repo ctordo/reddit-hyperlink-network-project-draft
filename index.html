@@ -72,21 +72,16 @@ sections:
   <p>
     Reddit is often described as a platform or a collection of communities. In our study, we invite you to see it differently: <strongorange>as a vast archipelago</strongorange>. 
     Thousands of islands (subreddits) each with their own cultures, norms, and languages, are connected by invisible currents of hyperlinks, references, and shared users. 
-    Most days, these currents carry harmless conversation. But sometimes, something else travels with them...
-  </p>
-  <p>
-    Earlier this year, several monitoring organizations raised an alert: <strong>patterns of toxic behavior appeared to be spreading across Reddit</strong> in ways that 
+    Most days, these currents carry harmless conversation. But sometimes, something else travels with them... Earlier this year, several monitoring organizations raised an alert: 
+    <strong>patterns of toxic behavior appeared to be spreading across Reddit</strong> in ways that 
     resembled contagion rather than coincidence. Hostile language, harassment, and inflammatory content were no longer confined to isolated communities. 
   </p>
   <p>
     This is where team <strong>AdAstra</strong> enters the story. We are a group of five data analysts tasked with an unusual mission: to investigate the epidemiology of toxicity 
     in Reddit’s hyperlink network. Our goal is not to moralize or moderate, but to observe, map, and understand. How does toxicity propagate? 
-    Which communities act as sources, sinks, or bridges? Are there identifiable patterns, pathways, or risk factors that explain its spread?
-  </p>
-  <p>
-    This notebook presents our research and results as we navigate the Reddit archipelago, examine clusters of related communities, and track how toxic behavior emerges and 
-    propagates through the network. The challenge is large, the system complex, and the stakes real. But with data as our compass and curiosity as our fuel, 
-    we set out to understand how toxicity travels and what its patterns reveal about the hidden geography of online discourse.
+    Which communities act as sources, sinks, or bridges? Are there identifiable patterns, pathways, or risk factors that explain its spread? This notebook presents our 
+    research and results as we navigate the Reddit archipelago, examine clusters of related communities, and track how toxic behavior emerges and 
+    propagates through the network.
   </p>   
 
   <div class="box-note box-collapsible">
@@ -112,7 +107,9 @@ sections:
     </div>
   </div>
 
+  <p>
 
+  </p>
   <!-- #################################################################################################################################### -->
   <h3>Our Tools for the Mission</h3>
   
@@ -129,7 +126,7 @@ sections:
   <div class="box-note box-collapsible">
     <div class="box-header">
       <div>
-        <strong>Note:</strong>  If you want a bit more details on the datasets' structures...
+        <strong>Note - </strong>If you want a bit more details on the datasets' structures...
       </div>
       <button class="box-toggle" aria-label="Toggle details"></button>
     </div>
@@ -178,10 +175,11 @@ sections:
       </p>
     </div>
   </div>
-
+  <p>
   Before tracing any outbreak, we needed to understand the terrain. Using the subreddit embeddings, we immediately projected Reddit into a two-dimensional space, 
   transforming an abstract network into a navigable landscape of clustered islands and thematic regions. For the first time, the scale of the challenge became visible.
-  
+  </p>
+
   <img src="{{ '/assets/img/subredditembeddingsinit.png' | relative_url }}" alt="subreddit embeddings" class="center large">
 
   <p>
@@ -206,38 +204,23 @@ sections:
 <!-- METRICS -->
 <!-- #################################################################################################################################### -->
 
+
+
 <section id="metric" class="section-block">
   <h1>Toxicity measurements</h1>
-  
+
   <p>
-  Our first fundamental preliminary step is to <strong>calculate a reliable and accurate metric of toxicity</strong> of each subreddit's post.
+  Before any outbreak could be tracked, one critical problem had to be solved: raw data alone cannot diagnose an epidemic. 
+  To study propagation, we first needed a reliable and consistent way to detect and quantify toxicity at its source: the individual Reddit post.
   </p>
-  
-  <h3>Toxicity score</h3>
-
-  <h4>What do we mean by "toxicity"?</h4>
-
-  
   <p>
   We define toxicity as <strongorange>patterns of communication or behavior that create a hostile, disrespectful, or harmful environment for 
   participants</strongorange>. This can include insults, harassment, hate speech, excessive negativity, or attempts to provoke conflict. 
   Toxicity reduces constructive discussion, discourages participation, and can damage the overall health and cohesion of the community.
   </p>
-  <p>
-  This definition aligns with standard computational social science literature, where toxicity requires both negative emotional valence, 
-  and linguistic markers of aggression or harmful intent. Reddit, being a large, anonymous, and heterogeneous platform, often exhibits these 
-  patterns, making it an appropriate setting for a linguistic toxicity metric.
-  </p>
-  
-  <div class="box-warning">
-    <code>TOXICITY_SCORE</code>: Continuous score that measures the toxicity intensity in a subreddit post
-  </div>
 
-  <p>
-    <strong>So, how will we we detect and quantify toxicity?</strong>
-  </p>
-
-  <h4>How to exploit the 86 textual properties of our data?</h4>
+  <!-- #################################################################################################################################### -->
+  <h3>Exploiting the 86 textual properties</h3>
 
   <p>
     Our dataset includes 86 textual properties covering structural, lexical, emotional, and LIWC-derived indicators. 
@@ -245,10 +228,10 @@ sections:
     capture many linguistic correlates of antagonistic or degrading speech. 
   </p>
 
-  <div class="box-note box-collapsible">
+  <div class="box-remark box-collapsible">
   <div class="box-header">
     <div>
-      <strong>Note:</strong> Learn more about what the 86 features capture:
+      <strong>Remark - </strong>Learn more about what the 86 features capture:
     </div>
     <button class="box-toggle" aria-label="Toggle details"></button>
   </div>
@@ -277,8 +260,6 @@ sections:
   <p> 
     Below are some metrics that are promising to use, based on our qualitative defintion of toxicity.
   </p> 
-
-
 
   <table class="toxicity-table">
     <thead>
@@ -364,8 +345,8 @@ sections:
   </div>
   </div>
   
-
-  <h4>Good news: <code>LINK_SENTIMENT</code> helps!</h4>
+  <!-- #################################################################################################################################### -->
+  <h3>Exploiting sentiment classification</h3>
 
   <p>
     <code>LINK_SENTIMENT</code> is derived using a supervised sentiment classifier trained on manually labeled Reddit data. 
@@ -432,17 +413,28 @@ sections:
     Based on the conceptual qualitative choice of what defines toxicity and the empirical negativity analysis above, we select a subset of properties 
     to constitute our toxicity metric. These properties already exist in ratio form (0–1), ensuring comparability.
   </p>
-  <p>
-    We define <code>TOXICITY_SCORE</code> as a <strongorange>weighted linear combination of the selected properties</strongorange>. A linear model 
-    is appropriate because it balances interpretability (and will allow immediate examination of feature contributions) with simple comparison across subreddits. 
+  
+<div class="box-warning box-collapsible">
+  <div class="box-header">
+    <div>
+      <code>TOXICITY_SCORE</code>: Continuous metric that measures the toxicity intensity in a subreddit post. Defined as a weighted linear combination of the selected properties.
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+  </div>
+  
+  <div class="box-content">
+    <p>
+    A linear model is appropriate because it balances interpretability (and will allow immediate examination of feature contributions) with simple comparison across subreddits. 
     It also supports later scaling, standardization, and model-based refinements. Weights are based on informed judgments from literature on aggressive discourse 
     (e.g., strong weight on anger and swearing; negative weight on cognitive complexity features like insight or cause).
-  </p>
-  <p>
+    </p>
+    <p>
     <strong>Weights are normalized by the sum of absolute values.</strong> This choice preserves relative influence of features and rescales the score into a bounded and 
     interpretable range. Il also ensures no single feature arbitrarily dominates due to coefficient magnitude. This normalization is a standard approach for 
     interpretability when working with heterogeneous features and manually chosen weights.
-  </p>
+    </p>
+  </div>
+  </div>
 
 <p>
   <strong>Final weighted average of toxicity score</strong>
@@ -504,7 +496,7 @@ sections:
   </p>
   
   
-  
+  <!-- #################################################################################################################################### -->
   <h3>Toxicity binary classification</h3>
   <p>
   We now have a reliable, continuous measure of toxicity. But it's not necessarily easy to interpret directly... 
@@ -513,9 +505,8 @@ sections:
   </p>
 
   <div class="box-warning">
-    <code>TOXICITY_CAT</code>: Categorical metric that classifies posts as non-toxic (0) or toxic (1)
+    <code>TOXICITY_CAT</code>: Categorical metric that classifies posts as non-toxic (0) or toxic (1), obtained by passing a threshold on <code>TOXICITY_SCORE</code>.
   </div>
-
 
   <p>
     This binary metric is obtaidned by passing a threshold on <code>TOXICITY_SCORE</code>. Specifically, the threshod above which messages 

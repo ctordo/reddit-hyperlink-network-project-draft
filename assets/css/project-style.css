@@ -215,8 +215,8 @@ body {
 }
 
 .cover-page img.map {
-  max-width: 100%;
-  width: 100%;
+  max-width:75%;
+  width: 75%;
 }
 
 /* Post-it vert pour les liens - EN BAS À DROITE */

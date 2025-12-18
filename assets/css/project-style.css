@@ -118,9 +118,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   scroll-margin-top: 20px;
-  border: 3px dashed rgba(84, 32, 32, 0.4);
+  border: 3px dashed rgba(0, 0, 0, 0.4);
 }
 
 .cover-page::before {
@@ -130,7 +130,7 @@ body {
   left: 15px;
   right: 15px;
   bottom: 15px;
-  border: 2px dashed rgba(55, 63, 212, 0.3);
+  border: 2px dashed rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   pointer-events: none;
 }
@@ -146,7 +146,7 @@ body {
 }
 
 .cover-page .subtitle {
-  font-size: 20px;
+  font-size: 18px;
   color: #19191e;
   text-align: center;
   font-family: 'Georgia', serif;
@@ -215,8 +215,8 @@ body {
 }
 
 .cover-page img.map {
-  max-width:75%;
-  width: 75%;
+  max-width: 70%;
+  width: 70%;
 }
 
 /* Post-it vert pour les liens - EN BAS À DROITE */
@@ -636,7 +636,7 @@ body {
 .case-selector {
   padding: 18px 25px;
   font-size: 17px;
-  font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+  font-family: 'Georgia', serif;
   line-height: 28px;
   letter-spacing: 0.3px;
   color: #333;
@@ -664,7 +664,7 @@ body {
 .case-selector option {
   padding: 15px;
   font-size: 17px;
-  font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+  font-family: 'Georgia', serif;
   line-height: 28px;
 }
 

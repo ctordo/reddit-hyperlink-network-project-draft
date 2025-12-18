@@ -1,100 +1,102 @@
-// Détection de la section active au scroll
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+  initNavigation();
+  initMapPins();
+  initCollapsibles();
+});
+
+/* ============================
+   NAVIGATION SCROLL + ACTIVE LINK
+   ============================ */
+function initNavigation() {
   const sections = document.querySelectorAll('.section-block');
   const navLinks = document.querySelectorAll('.fixed-nav a');
-  
+
+  if (!sections.length || !navLinks.length) return;
+
   function updateActiveLink() {
     let currentSection = '';
-    
+
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      
-      if (window.pageYOffset >= sectionTop - 100) {
-        currentSection = section.getAttribute('id');
+      if (window.pageYOffset >= section.offsetTop - 120) {
+        currentSection = section.id;
       }
     });
-    
+
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + currentSection) {
-        link.classList.add('active');
-      }
+      const target = link.getAttribute('href');
+      link.classList.toggle('active', target === `#${currentSection}`);
     });
   }
-  
-  // Mettre à jour au scroll
+
   window.addEventListener('scroll', updateActiveLink);
-  
-  // Mettre à jour au chargement
   updateActiveLink();
-  
-  // Smooth scroll pour les liens
+
   navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href')?.substring(1);
       const targetSection = document.getElementById(targetId);
-      
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 20,
-          behavior: 'smooth'
-        });
-      }
+
+      if (!targetSection) return;
+
+      e.preventDefault();
+
+      window.scrollTo({
+        top: targetSection.offsetTop - 20,
+        behavior: 'smooth'
+      });
     });
   });
-});
+}
 
-// Gestion des épingles sur la carte pour study cases
-document.addEventListener('DOMContentLoaded', function() {
+/* ============================
+   INTERACTIVE MAP PINS
+   ============================ */
+function initMapPins() {
   const mapPins = document.querySelectorAll('.map-pin');
-  
-  if (mapPins.length > 0) {
-    mapPins.forEach(pin => {
-      pin.addEventListener('click', function() {
-        const caseId = this.getAttribute('data-case');
-        
-        // Retirer la classe active de toutes les épingles
-        mapPins.forEach(p => p.classList.remove('active'));
-        
-        // Ajouter la classe active à l'épingle cliquée
-        this.classList.add('active');
-        
-        // Cacher tous les contenus
-        const allCases = document.querySelectorAll('.case-content');
-        allCases.forEach(c => c.classList.remove('active'));
-        
-        // Afficher le contenu correspondant
-        const selectedCase = document.getElementById(caseId);
-        if (selectedCase) {
-          selectedCase.classList.add('active');
-          
-          // Scroll smooth vers le contenu
-          setTimeout(() => {
-            selectedCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
+  const allCases = document.querySelectorAll('.case-content');
+
+  if (!mapPins.length || !allCases.length) return;
+
+  mapPins.forEach(pin => {
+    pin.addEventListener('click', () => {
+      const caseId = pin.dataset.case;
+      const selectedCase = document.getElementById(caseId);
+
+      if (!selectedCase) return;
+
+      // Active pin
+      mapPins.forEach(p => p.classList.remove('active'));
+      pin.classList.add('active');
+
+      // Active content
+      allCases.forEach(c => c.classList.remove('active'));
+      selectedCase.classList.add('active');
+
+      // Smooth scroll to content
+      selectedCase.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
       });
     });
-    
-    // Activer la première épingle par défaut
-    mapPins[0].click();
-  }
-});
-
-// Gestion des boxes dépliables
-document.addEventListener('DOMContentLoaded', function() {
-  const collapsibleBoxes = document.querySelectorAll('.box-collapsible');
-  
-  collapsibleBoxes.forEach(box => {
-    const toggle = box.querySelector('.box-toggle');
-    const content = box.querySelector('.box-content');
-    
-    if (toggle && content) {
-      toggle.addEventListener('click', function() {
-        box.classList.toggle('expanded');
-      });
-    }
   });
-});
+
+  // Activate first pin by default
+  mapPins[0]?.click();
+}
+
+/* ============================
+   COLLAPSIBLE BOXES
+   ============================ */
+function initCollapsibles() {
+  const boxes = document.querySelectorAll('.box-collapsible');
+  if (!boxes.length) return;
+
+  boxes.forEach(box => {
+    const toggle = box.querySelector('.box-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', () => {
+      box.classList.toggle('expanded');
+    });
+  });
+}

@@ -8,8 +8,6 @@ sections:
     title: Toxicity metrics
   - id: propagation
     title: Propagation styles
-  - id: embeddings
-    title: Subreddits embeddings
   - id: casestudies
     title: Case studies
   - id: conclusion
@@ -204,8 +202,6 @@ sections:
 <!-- #################################################################################################################################### -->
 <!-- METRICS -->
 <!-- #################################################################################################################################### -->
-
-
 
 <section id="metric" class="section-block">
   <h1>Toxicity measurements</h1>
@@ -689,195 +685,85 @@ sections:
 
 
 
+<!-- #################################################################################################################################### -->
+<!-- STUDY CASES -->
+<!-- #################################################################################################################################### -->
 
-<section id="embeddings" class="section-block">
-  <h1>Subreddits embeddings mapping</h1>
+<section id="studycases" class="section-block">
+  <h1>Study Cases</h1>
   
-  <h3>Graphiques de réseau</h3>
   <p>
-    Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-  </p>
-  <div class="box-note">
-    <strong>Note:</strong> Ceci est une box d'information avec du texte <em>en italique</em> et en <strong>gras</strong>.
-  </div>
-
-  <div class="box-warning">
-    <strong>Remark:</strong> Les données présentées sont issues d'un échantillon limité de subreddits.
-  </div>
-  
-  <div class="box-error">
-    <strong>Warning:</strong> Cette analyse ne prend pas en compte les liens supprimés par les modérateurs.
-  </div>
-  
-  <div class="box-success">
-    <strong>Success:</strong> Le dataset a été collecté avec succès et contient plus de 100,000 liens.
-  </div>
-  <h3>Cartes de chaleur</h3>
-  <p>
-    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+    To illustrate our findings, we present three detailed case studies examining different aspects of toxicity 
+    propagation in the Reddit hyperlink network. <strong>Click on the red pins on the map to explore each case.</strong>
   </p>
   
-  <h3>Analyses temporelles</h3>
-  <p>
-    Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-  </p>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section id="casestudies" class="section-block">
-  <h2>Study Cases</h2>
-    
   <!-- Carte interactive avec épingles -->
   <div class="case-map-container">
-    <img src="{{ '/assets/img/redditdraw2.png' | relative_url }}" alt="Reddit Network Map" class="medium">
+    <img src="{{ '/assets/img/redditdraw.png' | relative_url }}" alt="Reddit Network Map">
     
-    <!-- Épingle 1 - AJUSTE LES COORDONNÉES left et top EN % -->
+    <!-- Épingle 1 - AJUSTE left et top EN % -->
     <div class="map-pin" data-case="case1" style="left: 25%; top: 30%;"></div>
-    <div class="pin-label" style="left: 25%; top: 25%;">
+    <div class="pin-label" style="left: 25%; top: 30%; background-color: #e8f4f8;">
       Study Case 1:<br>Political Subreddits
     </div>
     
-    <!-- Épingle 2 - AJUSTE LES COORDONNÉES left et top EN % -->
+    <!-- Épingle 2 - AJUSTE left et top EN % -->
     <div class="map-pin" data-case="case2" style="left: 50%; top: 60%;"></div>
-    <div class="pin-label" style="left: 50%; top: 55%;">
+    <div class="pin-label" style="left: 50%; top: 60%; background-color: #fdf5d4;">
       Study Case 2:<br>Gaming Communities
     </div>
     
-    <!-- Épingle 3 - AJUSTE LES COORDONNÉES left et top EN % -->
+    <!-- Épingle 3 - AJUSTE left et top EN % -->
     <div class="map-pin" data-case="case3" style="left: 75%; top: 40%;"></div>
-    <div class="pin-label" style="left: 75%; top: 35%;">
+    <div class="pin-label" style="left: 75%; top: 40%; background-color: #d4edda;">
       Study Case 3:<br>News Aggregation
     </div>
   </div>
   
   <!-- Contenu Case 1 -->
   <div id="case1" class="case-content">
-    <h3>Study Case 1: XXX</h3>
+    <h3>Study Case 1: Political Subreddits</h3>
     
     <h4>Context and Selection</h4>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Political subreddits represent some of the most 
-      polarized communities on Reddit, with distinct ideological boundaries and high levels of inter-group conflict. 
-      We selected r/politics, r/conservative, and r/liberal as representative samples.
+      polarized communities on Reddit, with distinct ideological boundaries and high levels of inter-group conflict.
     </p>
     
     <h4>Methodology</h4>
     <p>
       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We analyzed 50,000 hyperlinks shared 
-      across these communities over a 6-month period, examining both the linguistic properties of accompanying 
-      comments and the network structure of link propagation.
-    </p>
-    
-    <h4>Key Findings</h4>
-    <p>
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-      Toxicity scores were significantly elevated (μ = 0.68) compared to baseline (μ = 0.42), with particular 
-      concentration around election-related content.
-    </p>
-    
-    <h4>Discussion</h4>
-    <p>
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      The findings suggest that political polarization creates echo chambers that amplify toxic discourse through 
-      selective link sharing and reinforcement of in-group narratives.
+      across these communities over a 6-month period.
     </p>
   </div>
   
   <!-- Contenu Case 2 -->
   <div id="case2" class="case-content">
-    <h3>Study Case 2: XXX</h3>
+    <h3>Study Case 2: Gaming Communities</h3>
     
     <h4>Context and Selection</h4>
     <p>
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-      Gaming communities exhibit unique toxicity patterns, often centered around competitive gameplay, developer 
-      criticism, and platform wars. We focused on r/gaming, r/pcmasterrace, and r/leagueoflegends.
+      Gaming communities exhibit unique toxicity patterns, often centered around competitive gameplay and platform wars.
     </p>
     
     <h4>Methodology</h4>
     <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
-      Our analysis covered 75,000 links shared during major game releases and esports tournaments, periods known 
-      for heightened community engagement and conflict.
-    </p>
-    
-    <h4>Key Findings</h4>
-    <p>
-      Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt 
-      explicabo. Toxicity exhibited strong temporal patterns, with spikes corresponding to controversial updates 
-      or competitive losses (peak μ = 0.72 during tournament finals).
-    </p>
-    
-    <h4>Discussion</h4>
-    <p>
-      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
-      dolores eos qui ratione voluptatem sequi nesciunt. Gaming toxicity appears more reactive and event-driven 
-      than political toxicity, suggesting different intervention strategies may be required.
+      Our analysis covered 75,000 links shared during major game releases and esports tournaments.
     </p>
   </div>
   
   <!-- Contenu Case 3 -->
   <div id="case3" class="case-content">
-    <h3>Study Case 3: XXX</h3>
+    <h3>Study Case 3: News Aggregation</h3>
     
     <h4>Context and Selection</h4>
     <p>
-      Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
-      News aggregation subreddits serve as crucial information hubs, but face challenges with misinformation 
-      and coordinated manipulation. We examined r/news, r/worldnews, and r/neutralnews.
+      News aggregation subreddits serve as crucial information hubs but face challenges with misinformation.
     </p>
     
     <h4>Methodology</h4>
     <p>
-      Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-      We tracked 100,000 news links over one year, cross-referencing with fact-checking databases and analyzing 
-      the correlation between source reliability and toxicity in discussions.
-    </p>
-    
-    <h4>Key Findings</h4>
-    <p>
-      Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. 
-      Links to low-credibility sources correlated strongly with elevated toxicity (r = 0.61, p < 0.001), 
-      while fact-checked sources showed 40% lower toxicity in associated comments.
-    </p>
-    
-    <h4>Discussion</h4>
-    <p>
-      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. 
-      The relationship between source credibility and discussion toxicity suggests that information quality 
-      interventions could have downstream effects on community discourse health.
+      We tracked 100,000 news links over one year, cross-referencing with fact-checking databases.
     </p>
   </div>
 </section>
@@ -900,6 +786,21 @@ sections:
   <p>
     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
   </p>
+  <div class="box-note">
+    <strong>Note:</strong> Ceci est une box d'information avec du texte <em>en italique</em> et en <strong>gras</strong>.
+  </div>
+
+  <div class="box-warning">
+    <strong>Remark:</strong> Les données présentées sont issues d'un échantillon limité de subreddits.
+  </div>
+  
+  <div class="box-error">
+    <strong>Warning:</strong> Cette analyse ne prend pas en compte les liens supprimés par les modérateurs.
+  </div>
+  
+  <div class="box-success">
+    <strong>Success:</strong> Le dataset a été collecté avec succès et contient plus de 100,000 liens.
+  </div>
   
   <h3>Group contributions</h3>
   <ul>

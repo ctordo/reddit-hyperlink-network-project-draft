@@ -689,7 +689,7 @@ body {
 
 .map-pin.active {
   background-color: #1976d2;
-  border-color: #ffd700;
+  border-color: #ffffff;
   box-shadow: 0 0 15px rgba(25, 118, 210, 0.8);
 }
 

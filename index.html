@@ -645,6 +645,9 @@ sections:
   </table>
 
   <p>
+
+  </p>
+  <p>
   The result of this clustering can be visualized in the following map. This map <strong>is not the geographic representation of Reddit 
     from the 300-dimensional embeddings</strong>. Instead, it is a virtual, statistical map in which each point represents a subreddit 
     positioned according to the similarities in its toxic behavior. In this abstract representation, the five clusters form clearly distinct 
@@ -735,13 +738,27 @@ sections:
 <section id="casestudies" class="section-block">
   <h2>Study Cases</h2>
     
-  <!-- Menu déroulant -->
-  <div class="case-selector-container">
-    <select id="case-selector" class="case-selector">
-      <option value="case1">Study Case 1: XXX</option>
-      <option value="case2">Study Case 2: XXX</option>
-      <option value="case3">Study Case 3: XXX</option>
-    </select>
+  <!-- Carte interactive avec épingles -->
+  <div class="case-map-container">
+    <img src="{{ '/assets/img/redditdraw2.png' | relative_url }}" alt="Reddit Network Map" class="medium">
+    
+    <!-- Épingle 1 - AJUSTE LES COORDONNÉES left et top EN % -->
+    <div class="map-pin" data-case="case1" style="left: 25%; top: 30%;"></div>
+    <div class="pin-label" style="left: 25%; top: 25%;">
+      Study Case 1:<br>Political Subreddits
+    </div>
+    
+    <!-- Épingle 2 - AJUSTE LES COORDONNÉES left et top EN % -->
+    <div class="map-pin" data-case="case2" style="left: 50%; top: 60%;"></div>
+    <div class="pin-label" style="left: 50%; top: 55%;">
+      Study Case 2:<br>Gaming Communities
+    </div>
+    
+    <!-- Épingle 3 - AJUSTE LES COORDONNÉES left et top EN % -->
+    <div class="map-pin" data-case="case3" style="left: 75%; top: 40%;"></div>
+    <div class="pin-label" style="left: 75%; top: 35%;">
+      Study Case 3:<br>News Aggregation
+    </div>
   </div>
   
   <!-- Contenu Case 1 -->

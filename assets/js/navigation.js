@@ -71,6 +71,40 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Gestion des épingles sur la carte
+  const mapPins = document.querySelectorAll('.map-pin');
+  
+  mapPins.forEach(pin => {
+    pin.addEventListener('click', function() {
+      const caseId = this.getAttribute('data-case');
+      
+      // Retirer la classe active de toutes les épingles
+      mapPins.forEach(p => p.classList.remove('active'));
+      
+      // Ajouter la classe active à l'épingle cliquée
+      this.classList.add('active');
+      
+      // Cacher tous les contenus
+      const allCases = document.querySelectorAll('.case-content');
+      allCases.forEach(c => c.classList.remove('active'));
+      
+      // Afficher le contenu correspondant
+      const selectedCase = document.getElementById(caseId);
+      if (selectedCase) {
+        selectedCase.classList.add('active');
+        
+        // Scroll smooth vers le contenu
+        selectedCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+  
+  // Activer la première épingle par défaut
+  if (mapPins.length > 0) {
+    mapPins[0].click();
+  }
+});
+
 // Gestion des boxes dépliables
 document.addEventListener('DOMContentLoaded', function() {
   const collapsibleBoxes = document.querySelectorAll('.box-collapsible');

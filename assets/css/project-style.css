@@ -445,6 +445,40 @@ body {
 }
 
 /*=================================================================================================*/
+/* Methodology overview */
+/*=================================================================================================*/
+.methodology-overview ol {
+  counter-reset: step;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.methodology-overview > ol > li {
+  list-style: none;
+  margin-bottom: 20px;
+  padding-left: 0;
+  font-weight: 600;
+}
+
+.methodology-overview > ol > li::before {
+  counter-increment: step;
+  content: counter(step) ". ";
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.methodology-overview ul {
+  margin-top: 8px;
+  margin-left: 24px;
+  list-style-type: disc;
+}
+
+.methodology-overview ul li {
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+
+/*=================================================================================================*/
 /* Tableau des ppts potentielles */
 /*=================================================================================================*/
 .toxicity-table {

@@ -462,14 +462,14 @@ body {
 
 .methodology-overview > ol > li::before {
   counter-increment: step;
-  content: counter(step) ". ";
+  content: counter(step) ".  ";
   font-weight: bold;
-  color: #1976d2;
+  color: #1e1e1e;
 }
 
 .methodology-overview ul {
   margin-top: 8px;
-  margin-left: 24px;
+  margin-left: 40px;
   list-style-type: disc;
 }
 

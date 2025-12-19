@@ -184,10 +184,8 @@ sections:
   Before tracing any outbreak, we needed to understand the terrain. Using the subreddit embeddings, we immediately projected Reddit into a two-dimensional space, 
   transforming an abstract network into a navigable landscape of clustered islands and thematic regions. For the first time, the scale of the challenge became visible...
   </p>
-
-  <iframe src="assets/interactives/reddit_maps/reddit_map_embeddings.html" width="100%" height = "700px" style="border: none;"></iframe>
   
-  <iframe src="assets/interactives/reddit_maps/reddit_map_topics.html" width="100%" height = "700px" style="border: none;"></iframe>
+  <iframe src="assets/interactives/reddit_maps/reddit_map_topic.html" width="100%" height = "630px" style="border: none;"></iframe>
   <!-- #################################################################################################################################### -->
   <h3>Methodology overview</h3>
   <div class="methodology-overview">
@@ -580,11 +578,11 @@ sections:
   we returned to our initial map of the Reddit archipelago and colored each island (subreddit) according to its toxic interactions count over time. 
   </p>
 
-  <img src="{{ '/assets/img/subredditembeddingsinit.png' | relative_url }}" alt="subreddit embeddings" class="center large">
+  <iframe src="assets/interactives/reddit_maps/monthly_evolution.html" width="100%" height = "700px" style="border: none;"></iframe>
 
   <p>
-  Patterns were clearly emerging! Pockets of intensity appeared, gradients formed across regions, and clusters seemed to pulse with activity.
-  And yet, something was missing... While the map confirmed that something was happening, it did not really <strong>explain</strong> anything yet. 
+  Patterns are clearly emerging! Pockets of intensity appear, gradients form across regions, and clusters seem to pulse with activity.
+  And yet, something is missing... While the map confirms that something was happening, it doesn't not really <strong>explain</strong> anything yet. 
   We needed to go beyond raw intensity and focus on structure. Our next step was clear: to identify and cluster the different styles of toxicity propagation 
   shaping the Reddit space.
   </p>
@@ -680,7 +678,7 @@ sections:
     We then wanted to see how well the clusters aligned with the geographic structure of the Reddit archipelago: we colored the islands 
     in our original embeddings-derived map according to their toxicity propagation style. 
   </p>
-  <iframe src="assets/interactives/reddit_maps/reddit_map_cluster.html" width="100%" height = "620px" style="border: none;"></iframe>
+  <iframe src="assets/interactives/reddit_maps/reddit_map_cluster.html" width="100%" height = "630px" style="border: none;"></iframe>
   <p>
     The result provides a striking view. The immediate observation is that subreddits that are geographically distant in the embedding 
     space can share similar toxic behavior, while neighboring communities may follow very different dynamics. But at the same time, some regions 
@@ -838,9 +836,9 @@ sections:
   <h3>Group contributions</h3>
   <ul>
     <li><strong>Aksel Akar</strong>: this and that </li>
-    <li><strong>Emilien Coudurier</strong>: this and that  </li>
-    <li><strong>Nathan Tabet</strong>: this and that  </li>
-    <li><strong>Cyprien Tordo</strong>: this and that  </li>
+    <li><strong>Emilien Coudurier</strong>: Study cases (event identification and life-cycle analysis) </li>
+    <li><strong>Nathan Tabet</strong>: Reddit embeddings mappings, community exploration, toxicity evolution</li>
+    <li><strong>Cyprien Tordo</strong>: Metrics (toxicity scoring and binary classification), Website Design,  </li>
     <li><strong>Cedric Zanou</strong>: this and that  </li>
     
   </ul>

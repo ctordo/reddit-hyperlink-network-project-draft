@@ -22,12 +22,10 @@ sections:
   </div>
   
   <div class="subtitle">
-    As reports of toxic behavior begin to circulate across the Reddit archipelago, a data analysis team is mandated to 
-    investigate the phenomenon. Tasked with mapping the terrain and tracing the pathways of propagation, 
-    <strong>AdAstra</strong> answers the call.
-    
-    This report presents the methods and findings developed by the team in their mission to understand toxicity 
-    in the Reddit space.
+    As reports of a mysterious virus known as <strong>toxicity</strong> begin to circulate across the Reddit archipelago, a team 
+    operating under the name <strong>AdAstra</strong> is mandated to investigate the epidemic. Tasked with mapping the terrain, 
+    tracing pathways of propagation, and understanding its unusual spreading patterns, the team answers the call. 
+    This report presents the methods and findings developed to trace the spread of toxicity across the Reddit space.
   </div>
 
   <img src="{{ '/assets/img/redditdrawalt.png' | relative_url }}" alt="reddit draw" class="center map">
@@ -74,20 +72,42 @@ sections:
 
   <!-- #################################################################################################################################### -->
   <h3>Context</h3>
+  
   <p>
     Reddit is often described as a platform or a collection of communities. In our study, we invite you to see it differently: <strong>as a vast archipelago</strong>. 
-    Thousands of islands (subreddits) each with their own cultures, norms, and languages, are connected by invisible currents of hyperlinks, references, and shared users. 
-    Most days, these currents carry harmless conversation. But sometimes, something else travels with them... Earlier this year, several monitoring organizations raised an alert: 
-    <strong>patterns of toxic behavior appeared to be spreading across Reddit</strong> in ways that 
-    resembled contagion rather than coincidence. Hostile language, harassment, and inflammatory content were no longer confined to isolated communities. 
+    Islands (subreddits) each with their own cultures, norms, and languages, are connected by invisible currents of hyperlinks, references, and shared users. 
+    Most days, these currents carry harmless conversation. But sometimes, something else travels with them... Earlier this year, several monitoring organizations raised an alert: a 
+    mysterious virus had been detected. This virus was not biological, but behavioral: <strong>patterns of toxic behavior appeared to be spreading across Reddit</strong> in ways that 
+    resembled contagion rather than coincidence. Hostile language, harassment, and inflammatory content were no longer confined to isolated communities. Multiple variants 
+    seemed to have emerged, spreading in atypical ways across interconnected communities and making the dynamics of the epidemic unusually complex.
   </p>
   <p>
-    This is where team <strong>AdAstra</strong> enters the story. We are a group of five data analysts tasked with an unusual mission: to investigate the epidemiology of toxicity 
-    in Reddit’s hyperlink network. Our goal is not to moralize or moderate, but to observe, map, and understand. How does toxicity propagate? 
-    Which communities act as sources, sinks, or bridges? Are there identifiable patterns, pathways, or risk factors that explain its spread? This notebook presents our 
+  To investigate this digital virus, the World Health Organization (WHO) mandated our team of epidemiologists equiped with a Minor in data analysis: <strong>AdAstra</strong>. 
+  Our goal is not to moralize or moderate, but to observe, map, and understand the investigate the epidemiology of toxicity in Reddit’s hyperlink network. 
+  Specifically, this study seeks to answer three key questions:
+  </p>
+
+  <ol>
+    <li>
+        <strong>⁠Variant characterization: </strong>Can we identify and clearly define the different variants of toxicity circulating in the Reddit archipelago?
+    </li>
+    <li>
+        <strong>⁠Community mapping: </strong>How do these variants manifest across different types of communities, and are certain subreddits particularly associated 
+        with specific types of toxicity?
+    </li>
+    <li>
+        <strong>⁠Inter-community influence: </strong>Through selected case studies, can we trace how individual communities influence each other and understand potential 
+        causal pathways in the spread of toxic behavior?
+    </li>
+  </ol>
+
+  <p>
+    This notebook presents our 
     research and results as we navigate the Reddit archipelago, examine clusters of related communities, and track how toxic behavior emerges and 
     propagates through the network.
-  </p>   
+  </p>  
+  
+ 
 
   <div class="box-note box-collapsible">
     <div class="box-header">
@@ -117,9 +137,9 @@ sections:
   </p>
   <!-- #################################################################################################################################### -->
   <h3>Our Tools for the Mission</h3>
-  
+
   <p>
-    Every outbreak investigation begins with instruments: ours came in the form of data.
+    As part of our mission, the WHO provided us with detailed records of communities' interactions across the Reddit archipelago. More precisely, our team used the following three datasets:
   </p>
   <ul>
     <li><strong>Reddit Hyperlink Network (Post Bodies): </strong>A directed record of how subreddits reference one another through hyperlinks embedded in 
@@ -173,7 +193,7 @@ sections:
         </a>
       </p>
       <p>
-        In addition to the hyperlink network, this project uses precomputed subreddit embeddings to incorporate semantic 
+        This project also uses precomputed subreddit embeddings to incorporate semantic 
         information into the analysis. Each row in this dataset represents a subreddit encoded as a dense numerical vector 
         of dimension 300. These embeddings capture latent semantic relationships between subreddits learned from Reddit 
         activity and provide a complementary perspective to the explicit hyperlink network. 
@@ -182,7 +202,8 @@ sections:
   </div>
   <p>
   Before tracing any outbreak, we needed to understand the terrain. Using the subreddit embeddings, we immediately projected Reddit into a two-dimensional space, 
-  transforming an abstract network into a navigable landscape of clustered islands and thematic regions. For the first time, the scale of the challenge became visible...
+  transforming an abstract network into a navigable landscape of clustered islands and thematic regions. Doing so, we were able to produce the Reddit map that 
+  guided us throughout our study. For the first time, the scale of the challenge became visible...
   </p>
   
   <iframe src="assets/interactives/reddit_maps/reddit_map_topic.html" width="100%" height = "630px" style="border: none;"></iframe>
@@ -583,7 +604,7 @@ sections:
   <p>
   Patterns are clearly emerging! Pockets of intensity appear, gradients form across regions, and clusters seem to pulse with activity.
   And yet, something is missing... While the map confirms that something was happening, it doesn't not really <strong>explain</strong> anything yet. 
-  We needed to go beyond raw intensity and focus on structure. Our next step was clear: to identify and cluster the different styles of toxicity propagation 
+  We needed to go beyond raw intensity and focus on structure. Our next step is clear: to identify and cluster the different styles of toxicity propagation 
   shaping the Reddit space.
   </p>
 
@@ -670,7 +691,7 @@ sections:
     regions, making it immediately obvious that <strong>different types of toxicity propagation are at play</strong>. Hover on the map to explore how islands reorganized!
   </p>
 
-  <iframe src="assets/interactives/subreddit_clustering_interactive.html" width="100%" height=720px style="border: none;"></iframe>
+  <iframe src="assets/interactives/reddit_maps/subreddit_clustering_interactive.html" width="100%" height=720px style="border: none;"></iframe>
   
 
   <h3>Marking clusters on the Reddit map</h3>
@@ -769,8 +790,6 @@ sections:
   <div id="case2" class="case-content">
     <h3>Study Case 2: Gaming Communities</h3>
     
-    <iframe src="assets/interactives/pcmci.html" width="100%" height = "520px" style="border: none;"></iframe>
-
     <h4>Context and Selection</h4>
     <p>
       Gaming communities exhibit unique toxicity patterns, often centered around competitive gameplay and platform wars.

@@ -204,7 +204,8 @@ sections:
   </div>
   <p>
   Before tracing any outbreak, we needed to understand the terrain. Using the subreddit embeddings, we immediately projected Reddit into a two-dimensional space, 
-  transforming an abstract network into a navigable landscape of clustered islands and thematic regions. Doing so, we were able to produce the Reddit map that 
+  transforming an abstract network into a navigable landscape of clustered islands and thematic regions (subreddits with less than 20 total interactions 
+  over the period were discarded). Doing so, we were able to produce the Reddit map that 
   guided us throughout our study. For the first time, the scale of the challenge became visible...
   </p>
   
@@ -684,17 +685,22 @@ sections:
 <div class="box-remark box-collapsible">
   <div class="box-header">
     <div>
-      <strong>Remark - </strong>Learn more about features used for clustering:
+      <strong>Remark - </strong>Preprocessing essentials:
     </div>
     <button class="box-toggle" aria-label="Toggle details"></button>
   </div>
   
   <div class="box-content">
     <ul>
-        <li>Low-activity filter: keep only subreddits with at least 10 toxic interactions, to avoid unstable temporal metrics.</li>
-        <li>Log compression (heavy-tailed counts/spans/degrees): X' = log(1 + X).</li>
-        <li>Winsorization (bounded percentages): cap extreme values to limit leverage. Mega flag: mark the top 1% on raw activity/degree 
-            as <code>is_mega</code>. Standard scaling: (X − µ) / σ so units contribute comparably.</li>
+        <li>Low-activity filter: keep only subreddits with at least 10 toxic interactions.<br>This avoids unstable temporal statistics (e.g., gap variability from 2–3 events).</li>
+        <li>Log compression (heavy-tailed counts/spans/degrees): X' = log(1 + X). <br>This reduces the dominance of a few very large 
+            communities in Euclidean distances and PCA.</li>
+        <li>Winsorization (bounded percentages): cap extreme values to limit leverage.<br>Useful for ratio-like features (“% recent”) 
+            where a some edge cases can skew centroids.</li> 
+        <li>Mega flag: mark the top 1% on raw activity/degree as <code>is_mega</code>.<br>We keep mega-subreddits in clustering, 
+            but track them explicitly for interpretation.</li>
+        <li>Standard scaling: (X − µ) / σ so units contribute comparably.<br>K-Means and PCA are distance/variance-driven so 
+            scaling prevents “days” or “counts” from winning by default.</li>
     </ul>
   </div>
   </div>
@@ -724,7 +730,6 @@ sections:
     together. K-Means works well here because it efficiently handles our continuous measurements and 
     produces clear, interpretable variant types.
   </p>
-
 
   <div class="box-remark box-collapsible">
   <div class="box-header">
@@ -769,6 +774,8 @@ sections:
         quality (silhouette ≈ 0.4), reasonable balance, and excellent stability (94% consistency across runs). Four distinct toxicity 
         variants, each representing a genuine behavioral archetype.
     </p>
+  </div>
+  </div>
 
   <h4>Confirming the Variants (Cluster Validation)</h4>
   <p>
@@ -786,10 +793,12 @@ sections:
   
   <div class="box-content">
     <ul>
-        <li>Davies–Bouldin (DB): lower is better; penalizes overlap (high within-cluster spread vs. small separation).</li>
-        <li>Calinski–Harabasz (CH): higher is better; rewards strong between-cluster variance relative to within-cluster variance.</li>
-        <li>Kruskal–Wallis H-test: non-parametric feature-by-feature test; checks whether clusters have different distributions.</li>
-        <li>Application of a conservative multiple-testing correction (Bonferroni-style).</li>
+        <li>Davies–Bouldin (DB): lower is better; penalizes overlap (high within-cluster spread vs. small separation).
+            <br>A “worst-neighbor” style check: it highlights if any two clusters are hard to tell apart.</li>
+        <li>Calinski–Harabasz (CH): higher is better; rewards strong between-cluster variance relative to within-cluster variance.
+            <br>A global signal of whether clustering explains meaningful structure (not just noise).</li>
+        <li>Kruskal-Wallis H-test: non-parametric feature-by-feature test; checks whether clusters have different distributions.
+            <br>We apply a conservative multiple-testing correction (Bonferroni-style) and focus on the most discriminative features.</li>
     </ul>
   </div>
   </div>
@@ -868,6 +877,41 @@ sections:
             <u>Interpretation:</u> vulnerable communities subject to one-sided harassment, with little or no toxic output.
         </li>
     </ul>
+
+  <div class="box-remark box-collapsible">
+  <div class="box-header">
+    <div>
+      <strong>Remark - </strong>:
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+  </div>
+  
+  <div class="box-content">
+    <p><strong>Pattern assignment (chronic / bursty / occasional)</strong>.  Thresholds are data-driven (tertiles).
+    We take the most frequent <code>temporal_pattern</code> inside the cluster (and keep its percentage as context).</p>
+    <ul class = "ulpack">
+        <li>Chronic: high activity + low irregularity.</li>
+        <li>Bursty: high short-window intensity + high irregularity.</li>
+        <li>Occasional: low activity + large typical gaps.</li>
+        <li>Mixed: A mix of the above categories</li>
+    </ul>
+    <p><strong>Volume assignment (low / moderate / high)</strong>: we compute tertiles on all subreddits, then assign:</p>
+    <ul class = "ulpack">
+        <li><strong>High-volume</strong> if cluster median <code>total_tox_count_raw</code> > Q0.67</li>
+        <li><strong>Moderate-volume</strong> if Q0.33 < median <= Q0.67.</li>
+        <li><strong>Low-volume</strong> otherwise</li>
+    </ul>
+    <p><strong>Role label (aggressor / victim / balanced / leaning)</strong>: we compare outgoing vs incoming toxicity using the 
+        relative imbalance computed on cluster medians <code>diff_ratio = abs(src - tgt) / (src + tgt)</code>, then assign:</p>
+    <ul class = "ulpack">
+        <li><strong>Balanced (Hub)</strong>  if <code>diff_ratio</code> < 0.20</li>
+        <li><strong>Aggressor or Victim</strong>  if <code>diff_ratio</code> >= 0.50 (depending on wether <code>src > tgt</code> or <code>tgt > src</code> </li>
+        <li><strong>Aggressor-leaning or Victim-leaning</strong> if 0.20 <= <code>diff_ratio</code> < 0.50.</li>
+        <li><strong>Inactive</strong> if <code>src + tgt</code> = 0.</li>
+    </ul>
+    <p><strong>Mega-subreddits</strong>: We print how they distribute across clusters (transparency, not a separate type).</p>
+  </div>
+  </div>
 
     <p>
     Together, these propagation styles form a concise map of how toxicity spreads, escalates, and 
@@ -1220,10 +1264,7 @@ sections:
         perform data reduction to pick the most active subreddits in this case. Typically, the source-to-target interaction ratio 
         is highlighted for each of them, allowing us to identify principal participants. Note that their status as prosecutor, 
         victim or catalyst cannot properly be defined as this is based on their interactions, rather than their toxic interactions 
-        (which will be studied in the next parts). Linear axes have been kept because of the stacked bar plots, as a y log-axis 
-        would have given more visual importance to very small target interactions compared to those on top of high source interactions. 
-        Moreover, the point here is to highlight the differences in activeness, which is easier to assess with a linear axis for 
-        dominant subreddits.</casegeneral>
+        (which will be studied in the next parts).</casegeneral>
       </p>
     </div>
     

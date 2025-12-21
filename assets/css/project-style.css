@@ -307,8 +307,8 @@ body {
     repeating-linear-gradient(
       transparent,
       transparent 24px,
-      #d4d4aa 24px,
-      #d4d4aa 25px
+      #d4d4aabb 24px,
+      #d4d4aabb 25px
     );
   background-size: 100% 25px, 25px 100%;
   padding: 30px 60px 50px 60px;

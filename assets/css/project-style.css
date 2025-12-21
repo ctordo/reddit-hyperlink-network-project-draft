@@ -160,17 +160,21 @@ body {
   line-height: 1.8;
 }
 
+/*========NEW========*/
+
 .cover-page .doctors-table {
   width: 100%;
   max-width: 900px;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: 20px auto;
+  table-layout: fixed;
 }
 
 .cover-page .doctors-table td {
   text-align: center;
   padding: 15px 10px;
   vertical-align: top;
+  width: 20%;
 }
 
 .cover-page .doctors-table .doctor-name {
@@ -180,6 +184,7 @@ body {
   font-family: 'Georgia', serif;
   text-shadow: none;
   margin-top: 15px;
+  display: block;
 }
 
 .cover-page .doctors-table .doctor-photo {
@@ -189,6 +194,8 @@ body {
   object-fit: cover;
   border: 2px solid #19191e;
   box-shadow: none;
+  display: block;
+  margin: 0 auto;
 }
 
 .cover-page .footer {

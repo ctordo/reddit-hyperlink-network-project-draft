@@ -829,23 +829,15 @@ sections:
   <!-- Conteneur principal avec alternance contenu commun/spécifique -->
   <div id="case-container">
     
-    <!-- Section commune 1 -->
-    <div class="case-common-section">
-      <h3>Introduction</h3>
-      <p>
-        WESH WESH
-      </p>
-    </div>
-  
     <!-- Contenu spécifique : Titre du case -->
     <div class="case-specific-content" data-case="case1">
-      <h3>Study Case 1: bettersubredditdrama</h3>
+      <h2>Study Case 1: bettersubredditdrama</h2>
     </div>
     <div class="case-specific-content" data-case="case2">
-      <h3>Study Case 2: science</h3>
+      <h2>Study Case 2: science</h2>
     </div>
     <div class="case-specific-content" data-case="case3">
-      <h3>Study Case 3: drama</h3>
+      <h2>Study Case 3: drama</h2>
     </div>
 
     <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
@@ -853,10 +845,10 @@ sections:
     <div class="case-common-section">
       <h3>Time Window Identification</h3>
     <p>
-      An interesting time window is selected based on the trends of interactions over the whole available time period (global). 
+      <em>An interesting time window is selected based on the trends of interactions over the whole available time period (global). 
       We argue that the trend of total source and total target interactions adds useful information in addition to a simple 
       global toxic interaction trend. Indeed, this allows us to gather information about the dynamic of the focused group 
-      (mostly aggressor or victim interactions). They add key insights for time window selection, and will be verified later on.
+      (mostly aggressor or victim interactions). They add key insights for time window selection, and will be verified later on.<em>
     </p>
 
     <div class="box-remark box-collapsible">
@@ -898,7 +890,7 @@ sections:
       <iframe src="assets/interactives/studycases/CS1_1_daily_interactions_overall.html" width="100%" height = "440px" style="border: none;"></iframe>
       <iframe src="assets/interactives/studycases/CS1_2_daily_interactions_negative.html" width="100%" height = "440px" style="border: none;"></iframe>
       <p>
-        The <em>'bettersubredditdrama'</em> is particular as it was active only for a short period. However, we can see that the toxic-to-nontoxic 
+        The 'bettersubredditdrama' is particular as it was active only for a short period. However, we can see that the toxic-to-nontoxic 
         ratio of interactions in this period is moderately high, and constant. This makes it a potential chronic toxic subreddit in 
         its lifespan. Furthermore, it almost only interacts as a source, validating its 'aggressor' nature found by clustering.
       </p>
@@ -907,7 +899,7 @@ sections:
       <iframe src="assets/interactives/studycases/CS1_1_daily_interactions_overall.html" width="100%" height = "440px" style="border: none;"></iframe>
       <iframe src="assets/interactives/studycases/CS1_2_daily_interactions_negative.html" width="100%" height = "440px" style="border: none;"></iframe>
       <p>
-        The <em>'science'</em> subreddit was subject to numerous bursty events. One of them appears as a dominant toxic event over 
+        The 'science' subreddit was subject to numerous bursty events. One of them appears as a dominant toxic event over 
         the whole period and could be interesting to investigate for its rapidly changing behavior. Moreover, most of its interactions 
         over the whole time period are as target, indicating a victim nature (same as clustering prediction). We highlight that 
         the nature of the selected peak between April 15th and May 5th is consistent with this observation, meaning it can also 
@@ -918,8 +910,8 @@ sections:
       <iframe src="assets/interactives/studycases/CS1_1_daily_interactions_overall.html" width="100%" height = "440px" style="border: none;"></iframe>
       <iframe src="assets/interactives/studycases/CS1_2_daily_interactions_negative.html" width="100%" height = "440px" style="border: none;"></iframe>
       <p>
-        The <em>'drama'</em> subreddit is one of the most active on reddit. It has a toxic peak resembling the one of 
-        <em>'bettersubredditdrama'</em>, which makes sense from their thematic closeness. However, its number of interactions is 
+        The 'drama' subreddit is one of the most active on reddit. It has a toxic peak resembling the one of 
+        'bettersubredditdrama', which makes sense from their thematic closeness. However, its number of interactions is 
         way higher and possesses context before and after, making it non only interesting in itself, but also interesting to compare 
         with the first case study. We can see that the number of source interactions is dominant, indicating an aggressor behavior 
         (consistent with clustering). We therefore select a time window slightly larger than the first case study (i.e. from November 
@@ -930,10 +922,10 @@ sections:
     <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
     <!-- Section commune : Toxic Event Assessment -->
     <div class="case-common-section">
-      <h3>Methodology</h3>
+      <h3>Toxic Event Assessment</h3>
       <p>
-        Now that the time window of interest has been chosen, we can extract from the interaction dataframe the subreddits in the group 
-        (keyword-based <code>U</code> usual neighbors-based), and the interactions within this time window.
+        <em>Now that the time window of interest has been chosen, we can extract from the interaction dataframe the subreddits in the group 
+        (keyword-based <code>U</code> usual neighbors-based), and the interactions within this time window.</em>
       </p>
     </div>
     
@@ -971,8 +963,8 @@ sections:
     <div class="case-common-section">
       <h4>Total Interactions Over Time</h4>
       <p>
-        Based on the daily total interactions, we can assess if this event resembles the type previously assigned during clustering, 
-        namely either <strong>Victim</strong> or <strong>Aggressor</strong>.
+        <em>Based on the daily total interactions, we can assess if this event resembles the type previously assigned during clustering, 
+        namely either <strong>Victim</strong> or <strong>Aggressor</strong>.</em>
       </p>
     
       <div class="box-remark box-collapsible">
@@ -1025,37 +1017,181 @@ sections:
         useful information to establish if an extended toxic event indeed took place.
       </p>
     </div>
-    
-    <!-- Section commune 5 -->
+
+    <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- Sous-section commune: Top subreddit interactors -->
     <div class="case-common-section">
-      <h4>Discussion and Implications</h4>
+      <h4>Top subreddit interactors</h4>
       <p>
-        These findings contribute to our broader understanding of toxicity propagation mechanisms in online communities. 
-        Each case study reveals unique patterns that inform both theoretical models and practical interventions.
+        <em>In addition to identifying the class of toxic event and the associated behavior cluster, we take a look at the most active 
+            subreddits in this context. This allows us to further classify the event from the number of relevant participants, and 
+            perform data reduction to pick the most active subreddits in this case. Typically, the source-to-target interaction ratio 
+            is highlighted for each of them, allowing us to identify principal participants. Note that their status as prosecutor, 
+            victim or catalyst cannot properly be defined as this is based on their interactions, rather than their toxic interactions 
+            (which will be studied in the next parts). Linear axes have been kept because of the stacked bar plots, as a y log-axis 
+            would have given more visual importance to very small target interactions compared to those on top of high source interactions. 
+            Moreover, the point here is to highlight the differences in activeness, which is easier to assess with a linear axis for 
+            dominant subreddits.</em>
       </p>
     </div>
     
     <!-- Contenu spécifique : Discussion -->
     <div class="case-specific-content" data-case="case1">
+      <iframe src="assets/interactives/studycases/CS1_4_top_interactors_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
       <p>
-        The findings suggest that political polarization creates echo chambers that amplify toxic discourse through 
-        selective link sharing and reinforcement of in-group narratives. <strong>Intervention strategies</strong> 
-        should focus on promoting cross-community dialogue and fact-based discussion rather than simply removing 
-        toxic content.
+        From this bar plot, we can conclude that this event is indeed a single prosecutor, multi-victims case (case b). The 
+        'bettersubredditdrama' subreddit is clearly interacting exclusively as a source, meaning the toxic interactions it may 
+        have are necessarily as source as well. This is most likely a prosecutor, which is interesting considering its short lifespan. 
+        We can hypothesize that it was a highly participating actor in propagating toxicity, and we will verify this hypothesis in the 
+        top toxic subreddit interactors section.
       </p>
     </div>
     <div class="case-specific-content" data-case="case2">
+      <iframe src="assets/interactives/studycases/CS1_4_top_interactors_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
       <p>
-        Gaming toxicity appears more reactive and event-driven than political toxicity, suggesting different 
-        intervention strategies may be required. <strong>Temporal cooling-off periods</strong> after major events 
-        and proactive community management during tournaments could significantly reduce toxicity spikes.
+        As conjectured, the 'science' subreddit is a victim during this event. We can also see that other subreddit have a significant 
+        number of interactions, some mostly as target ('askscience'), some as target and source equally ('badsocialscience', 
+        'asksciencefiction'), and some completely as source ('brain_damage'). This indicates we are in a multi-victims, multi-aggressors 
+        case (case c). We can highlight that the most active source subreddits are thematically opposed to science, with 'brain_damage', 
+        'badsocialscience', 'conspiracy' and 'badscience' showing up in the top 10 interactors. Furthermore, the 'asksciencefiction' 
+        might actually be a false positive, as it has the same keyword in its name but might not interact directly with the 'science' 
+        subreddit. We need to see if all these subreddits interact in a toxic manner to confirm these statements.
       </p>
     </div>
     <div class="case-specific-content" data-case="case3">
+      <iframe src="assets/interactives/studycases/CS1_4_top_interactors_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
       <p>
-        The relationship between source credibility and discussion toxicity suggests that <strong>information quality 
-        interventions</strong> could have downstream effects on community discourse health. Promoting reliable sources 
-        and fact-checking infrastructure may be as important as direct content moderation.
+        This bar plot confirms our prior belief on the nature of the 'drama' subreddit. Indeed, this subreddit has a high 
+        source-to-target interaction ratio, indicating an aggressor nature. What is very interesting is that we can see that the 
+        'drama' subreddit is not the most active in his group. We can conjecture that the subreddit with the most impact is 
+        'subredditdrama', followed closely by 'bettersubredditdrama'. This also links this study case to our first one, showing 
+        underlying connections. Since the 'bettersubredditdrama' subreddit has no target interaction, it means the bigger subreddit 
+        'subredditdrama' never targeted it. Moreover, this absence of 'subredditdrama' in the first study case indicates that the 
+        bigger subreddits don't actually communicate, but rather focus on multiple, smaller victims. This is key in defining the 
+        type of toxic event, and suggests that these subreddits are allied against smaller victims.
+      </p>
+    </div>
+
+    <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- Sous-section commune: Toxic Interactions Over Time -->
+    <div class="case-common-section">
+      
+      
+    <div class="box-remark box-collapsible">
+    <div class="box-header">
+    <div>
+      <strong>Remark - </strong>What about retained false positives?
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+    </div>
+  
+    <div class="box-content">
+    <p>
+      Note that from how our focusing tool is built, every subreddit with a keyword appearing in their name is selected. 
+      This ensures no false negatives, but also adds false positives. We argue that this is not an issue as the causal 
+      analysis will reveal if it is the case.
+    </p>
+    </div>
+    </div>
+      
+      <h4>Toxic Interactions Over Time</h4>
+      <p>
+        <em>Further analysis of toxic interactions is performed in this subsection. The evolution of the total toxic 
+            interactions is key in indicating if the interaction outbreak is indeed toxic. Additionally, a moving average 
+            is shown to confirm a change in trend. The toxicity nature of an interaction is decided based on their categorical 
+            feature presented earlier: <code>TOXICITY_CAT == 1</code></em>.
+      </p>
+    </div>
+
+    <div class="box-remark box-collapsible">
+    <div class="box-header">
+    <div>
+      <strong>Remark - </strong>As a reference, we give here below the typical toxic traits over the whole dataframe (not focused):
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+    </div>
+  
+    <div class="box-content">
+    <p> Average daily toxicity: 0.075, Average toxic duration: 161.96 hours. The average toxic duration is the average time separating 
+        an interaction labelled as <code>TOXICITY_CAT == 1</code> and another one labelled as <code>TOXICITY_CAT == 0</code> for the same subreddit. 
+        Even if it is a bit less than a week, one toxic interaction per day for a week should not be considered a toxic event. We 
+        define that a significant outbreak of toxicity >> average daily toxicity is a bursty toxic event, and that high daily toxicity 
+        levels for a longer period than a week is considered a long-term toxic event.
+    </p>
+    </div>
+    </div>
+    
+    <!-- Contenu spécifique : Toxic Interactions Over Time -->
+    <div class="case-specific-content" data-case="case1">
+      <iframe src="assets/interactives/studycases/CS1_5_daily_negative_interactions_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
+      <p>
+        It is clear from this plot that the amount of toxic interaction is non-negligible over the selected period. Even if we don't 
+        have much context in such a short lifespan, it can be argued that the whole period of existence of this subreddit is equally 
+        toxic, and sufficiently toxic to be considered a chronic toxic subreddit. We emphasize that a typical subreddit has globally 
+        close to no toxic interaction, while the moving average here is fluctuating around 4 toxic interactions per day. We conclude 
+        this is a toxic event, with 'bettersubredditdrama' as the protagonist. Its role in the event will be identified in the next 
+        sections.
+      </p>
+    </div>
+    <div class="case-specific-content" data-case="case2">
+      <iframe src="assets/interactives/studycases/CS1_5_daily_negative_interactions_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
+      <p>
+        From the moving average, we can assess that this is a bursty toxic event. The rest of the context (toxic interactions around 
+        the peak) shows that this subreddit is usually not involved in toxic events. We can also say that the previous outbreak seen 
+        in the total interaction plot was not a toxic outbreak, but simply an interaction outbreak.
+      </p>
+    </div>
+    <div class="case-specific-content" data-case="case3">
+      <iframe src="assets/interactives/studycases/CS1_5_daily_negative_interactions_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
+      <p>
+        As for the first study case, this event can be classified a long-term toxic event. The trend given by the 3-day average shows 
+        an overall increase in the number of toxic interactions over the course of a month, which is long enough to be considered 
+        long-term. Since this subreddit is already on average more toxic than the average, this even more toxic period is considered 
+        as a long-term toxic event.
+      </p>
+    </div>
+
+
+
+    <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- Sous-section commune: Top Toxic Subreddit Interactors -->
+    <div class="case-common-section">
+      
+    <h4>Top Toxic Subreddit Interactors</h4>
+      <p>
+        <em>Finally, we add a plot showing the number of toxic interactions for each subreddit. This allow us to identify 
+            the most toxic subreddits, and therefore more precisely select the most active participants in terms of toxicity 
+            later on. We use here a log scale for the y-axis as we don't have stacked plots, and to improve readability.</em>.
+      </p>
+    
+    <!-- Contenu spécifique : Top Toxic Subreddit Interactors -->
+    <div class="case-specific-content" data-case="case1">
+      <iframe src="assets/interactives/studycases/CS1_6_top_negative_interactors_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
+      <p>
+        As for the top interactors, the 'bettersubredditdrama' subreddit appears as the dominant toxic interactor. 
+        This confirms our conjecture about its role as the principal aggressor in its group. The number of toxic interactions, 
+        combined with its interactions being mostly as source, makes it a typical hyper aggressor towards multiple victims.
+      </p>
+    </div>
+    <div class="case-specific-content" data-case="case2">
+      <iframe src="assets/interactives/studycases/CS1_6_top_negative_interactors_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
+      <p>
+        We can see that the 'science' subreddit is still in the top 3 of most toxic interacting subreddits. However, we highlight 
+        that the first and second subreddits were not that high in the total interaction bar plot. The previously identified 
+        antithetic subreddits do not turn out to be the most toxic in the 'science' group. Nevertheless, their non-toxic interactions 
+        could turn out to have an effect on the toxic interactions of the 'science' subreddit, as catalysts would do. Additionally, 
+        the number of toxic interactions is very low (5) compared to the number of total interactions (80). This is still a toxic 
+        event for the subreddit in itself, but on a different scale. We highlight that this kind of bursty toxic event is common 
+        for small subreddits, especially because the average daily toxicity indicates less than 1 out of 10 toxic interactions. Even 
+        an outbreak of 5 toxic interactions is relevant in our study, and provides useful data on the different scales of such events.
+      </p>
+    </div>
+    <div class="case-specific-content" data-case="case3">
+      <iframe src="assets/interactives/studycases/CS1_6_top_negative_interactors_windowed.html" width="100%" height = "440px" style="border: none;"></iframe>
+      <p>
+        As in the bar plot of top interactors, 'subredditdrama', 'bettersubredditdrama' and 'drama' dominate as the most active 
+        toxic interactors. This further entails their role as major aggressors. We can say they probably form the aforementioned 
+        alliance as prosecutors, propagating toxicity to numerous victims without interacting with one another.
       </p>
     </div>
     
@@ -1070,8 +1206,9 @@ sections:
 
 
 
-
-
+<!-- #################################################################################################################################### -->
+<!-- CONCLUSION -->
+<!-- #################################################################################################################################### -->
 
 <section id="conclusion" class="section-block">
   <h1>Conclusion</h1>

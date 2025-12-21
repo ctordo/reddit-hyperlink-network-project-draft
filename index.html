@@ -511,17 +511,6 @@ sections:
     </iframe>
   </div>
 </div>
-
-  <p>
-  Let's visualize our new metric's empirical distribution.
-  </p>
-
-  <img src="{{ '/assets/img/score_distrib.png' | relative_url }}" alt="score distrib" class="center large">
-
-  <p>
-  Talk about power law??
-  </p>
-  
   
   <!-- #################################################################################################################################### -->
   <h3>Toxicity binary classification</h3>
@@ -1261,28 +1250,6 @@ sections:
     </div>
     </div>
 
-    <div class="box-error box-collapsible">
-    <div class="box-header">
-    <div>
-      More details on how to interpret the networks:
-    </div>
-    <button class="box-toggle" aria-label="Toggle details"></button>
-    </div>
-  
-    <div class="box-content">
-    <p> Red links are positively correlated and green links are negatively correlated. Colored links are only drawn towards or from 
-        the protagonist. Lag is also shown, and indicates the time taken from one time series to affect the pointed node. As mentioned 
-        in the early phase of this section, such social links form a complex web of interlinked connections. PCMCI allows us to 
-        determine statistical dependence and correlation between time series, but is not a magical tool. The obtained causal graph 
-        is a representation of the causal interactions through statistical relevance, based on our assumptions. For example, we only 
-        analyze the most active subreddits, while the real connections are most likely the result of hundreds of low interacting 
-        subreddits. Unmodelled confounders indeed have an effect that cannot be seen in this graph, giving a simplified final analysis. 
-        This is also why only the protagonist is analyzed, since it reduces the number of links to take into account. We highlight that 
-        the graphs we obtain make sense as the effect on one subreddit is never considered from a single source.
-    </p>
-    </div>
-    </div>
-
     <div class="box-note box-collapsible">
     <div class="box-header">
     <div>
@@ -1327,6 +1294,28 @@ sections:
     <p>
       They give information about how other subreddits cause toxic interactions in the protagonist time series, from their non-toxic interactions (i.e. as catalysts) and from their toxic interactions (i.e. as prosecutors).
     </p>
+
+    <div class="box-error box-collapsible">
+    <div class="box-header">
+    <div>
+      More details on how to interpret the networks:
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+    </div>
+  
+    <div class="box-content">
+    <p> Red links are positively correlated and green links are negatively correlated. Colored links are only drawn towards or from 
+        the protagonist. Lag is also shown, and indicates the time taken from one time series to affect the pointed node. As mentioned 
+        in the early phase of this section, such social links form a complex web of interlinked connections. PCMCI allows us to 
+        determine statistical dependence and correlation between time series, but is not a magical tool. The obtained causal graph 
+        is a representation of the causal interactions through statistical relevance, based on our assumptions. For example, we only 
+        analyze the most active subreddits, while the real connections are most likely the result of hundreds of low interacting 
+        subreddits. Unmodelled confounders indeed have an effect that cannot be seen in this graph, giving a simplified final analysis. 
+        This is also why only the protagonist is analyzed, since it reduces the number of links to take into account. We highlight that 
+        the graphs we obtain make sense as the effect on one subreddit is never considered from a single source.
+    </p>
+    </div>
+    </div>
 
     <!-- Contenu spécifique : Life Cycle analysis -->
     <div class="case-specific-content" data-case="case1">

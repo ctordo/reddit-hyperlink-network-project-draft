@@ -140,8 +140,8 @@ sections:
 
   <p>
     As part of our mission, the WHO provided us with detailed records of interactions between communities across the Reddit archipelago.
-    Specifically, we make use of the following three datasets:
-
+    Unable to visit the islands directly due to the risk of contagion, we rely on these essential tools to investigate the virus 
+    remotely and effectively. Specifically, we make use of the following three datasets:
   </p>
   <ul>
     <li><strong>Reddit Hyperlink Network (Post Bodies): </strong>A directed record of how subreddits reference one another through hyperlinks embedded in 
@@ -703,9 +703,7 @@ sections:
 
   <p>
     Even with redundant symptoms removed, we're still tracking 14 different behavioral indicators per
-    community. That's a lot of data to process when trying to identify distinct virus variants.
-  </p>
-  <p>
+    community. That's a lot of data to process when trying to identify distinct virus variants. 
     Principal Component Analysis (PCA) helps us lower the 14 measurements down to the core patterns
     that really matter. We are trying to identify key symptoms that define a disease: instead of tracking
     every minor detail, we focus on the fundamental signatures that distinguish one variant from
@@ -1523,7 +1521,6 @@ sections:
     <!-- Contenu spécifique : Life Cycle analysis -->
     <div class="case-specific-content" data-case="case1">
       <iframe src="assets/interactives/studycases/CS1/CS1_7_PCMCI.html" width="100%" height = "660px" style="border: none;"></iframe>
-      <iframe src="assets/interactives/studycases/CS1/CS1_8_PCMCI_negative.html" width="100%" height = "660px" style="border: none;"></iframe>
       <p>
         From these causal graphs, we can identify subreddits having a direct effect on the protagonist. The entire graph shows a complex 
         web of causality, which is expected since we work with complex social data.
@@ -1546,6 +1543,7 @@ sections:
         the protagonist increases. No calming links were highlighted here (i.e., non-toxic time series negatively correlated 
         with the toxic time series of the protagonist), which suggests a passive decay of the toxic event.
       </p>
+      <iframe src="assets/interactives/studycases/CS1/CS1_8_PCMCI_negative.html" width="100%" height = "660px" style="border: none;"></iframe>
       <p>
         The second causal graph confirms the aggressor behavior of the protagonist. Indeed, its positively correlated directed 
         links towards 'conspiracy', 'pics', and 'hiphopheads' indicate a propagation of its own toxic trend. It also appears to 
@@ -1557,8 +1555,7 @@ sections:
       </p>
     </div>
     <div class="case-specific-content" data-case="case2">
-      <iframe src="assets/interactives/studycases/CS2/CS2_7_PCMCI.html" width="100%" height = "660px" style="border: none;"></iframe>
-      <iframe src="assets/interactives/studycases/CS2/CS2_8_PCMCI_negative.html" width="100%" height = "660px" style="border: none;"></iframe>
+      <iframe src="assets/interactives/studycases/CS2/CS2_7_PCMCI.html" width="100%" height = "700px" style="border: none;"></iframe>
       <p>
         From these causal graphs, we can identify subreddits having a direct effect on the protagonist. The entire graph shows a 
         complex web of causality, which is expected since we work with complex social data.
@@ -1578,6 +1575,7 @@ sections:
         and that 'badsocialscience' contributed to this toxic outbreak. No calming links were identified here, suggesting once again 
         a passive decay of the toxic event.
       </p>
+      <iframe src="assets/interactives/studycases/CS2/CS2_8_PCMCI_negative.html" width="100%" height = "700px" style="border: none;"></iframe>
       <p>
         The second graph provides additional insight. In particular, the 'badscience' subreddit emerges as one of the most likely 
         patient-zero candidates. Its low-lag, highly correlated link towards the protagonist suggests strongly coupled dynamics 
@@ -1597,8 +1595,7 @@ sections:
       </p>
     </div>
     <div class="case-specific-content" data-case="case3">
-      <iframe src="assets/interactives/studycases/CS3/CS3_7_PCMCI.html" width="100%" height = "660px" style="border: none;"></iframe>
-      <iframe src="assets/interactives/studycases/CS3/CS3_8_PCMCI_negative.html" width="100%" height = "660px" style="border: none;"></iframe>
+      <iframe src="assets/interactives/studycases/CS3/CS3_7_PCMCI.html" width="100%" height = "700px" style="border: none;"></iframe>
       <p>
         From these causal graphs, we can identify subreddits having a direct effect on the protagonist. The entire graph shows a 
         complex web of causality, which is expected since we work with complex social data.
@@ -1615,6 +1612,7 @@ sections:
         show a decrease in the number of non-toxic interactions when 'drama' exhibits increasing toxic interactions, 
         suggesting a coupled dynamic among allied subreddits, as previously conjectured.
       </p>
+      <iframe src="assets/interactives/studycases/CS3/CS3_8_PCMCI_negative.html" width="100%" height = "700px" style="border: none;"></iframe>
       <p>
         The second graph highlights a tight relationship between the main drama-related subreddits, including 'subredditdrama', 
         'mildredditdrama', and 'drama'. This confirms our hypothesis regarding their alliance-type dynamics. The role of the 
@@ -1652,8 +1650,7 @@ sections:
       </p>
       <p>
         This case study also emphasizes the presence of complex and highly interconnected networks, for which the most reasonable 
-        response to such outbreaks would be moderation of interactions rather than isolated interventions. Actions ranging from 
-        simple verification of interaction toxicity to quarantine-like mechanisms are therefore strongly supported.
+        response to such outbreaks would be moderation of interactions rather than isolated interventions.
       </p>
     </div>
     <div class="case-specific-content" data-case="case2">
@@ -1670,8 +1667,7 @@ sections:
       </p>
       <p>
         As in CS1, this case underscores the existence of intricate interaction networks, suggesting that effective mitigation 
-        strategies should focus on moderating inter-community interactions. Measures such as toxicity-aware filtering or 
-        quarantine-like controls appear well justified in this context.
+        strategies should focus on moderating inter-community interactions.
       </p>
     </div>
     <div class="case-specific-content" data-case="case3">
@@ -1685,13 +1681,7 @@ sections:
         We completed our study by providing insights into the propagation agents, removing false positives, identifying potential 
         patient-zero candidates, and characterizing the death type of the outbreak as low-active and mostly natural. These 
         results further validate our conjecture regarding toxicity variants and emphasize the role of coordinated dynamics 
-        between communities.
-      </p>
-      <p>
-        Once again, this case illustrates the complexity of Reddit’s interaction networks. As with the previous studies, our 
-        findings strongly support the idea that moderation of interactions—rather than isolated content removal—would be the 
-        most effective strategy to mitigate such toxic outbreaks.
-
+        between communities. Once again, this case illustrates the complexity of Reddit’s interaction networks. 
       </p>
     </div>
 
@@ -1715,24 +1705,9 @@ sections:
   
   <h3>Synthesis of results</h3>
   <p>
-    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+    Conclusion (Emilien on it...)
   </p>
-  <div class="box-note">
-    <strong>Note:</strong> Ceci est une box d'information avec du texte <em>en italique</em> et en <strong>gras</strong>.
-  </div>
-
-  <div class="box-warning">
-    <strong>Remark:</strong> Les données présentées sont issues d'un échantillon limité de subreddits.
-  </div>
-  
-  <div class="box-error">
-    <strong>Warning:</strong> Cette analyse ne prend pas en compte les liens supprimés par les modérateurs.
-  </div>
-  
-  <div class="box-success">
-    <strong>Success:</strong> Le dataset a été collecté avec succès et contient plus de 100,000 liens.
-  </div>
-  
+ 
   <h3>Group contributions</h3>
   <ul>
     <li><strong>Aksel Akar</strong>: Propagation-style clustering, Repo management, Datastory </li>
@@ -1742,9 +1717,4 @@ sections:
     <li><strong>Cedric Zanou</strong>: Propagation clustering, Repo management, Datastory </li>
     
   </ul>
-  
-  <h3>Final word</h3>
-  <p>
-    Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
-  </p>
 </section>

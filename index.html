@@ -729,9 +729,79 @@ sections:
   <h1>Study Cases</h1>
   
   <p>
-    To illustrate our findings, we present three detailed case studies examining different aspects of toxicity 
-    propagation in the Reddit hyperlink network. <strong>Click on the red pins on the map to explore each case.</strong>
+    We aim to deepen our comprehension of the toxic events through case studies. That is, by performing an analysis on a <strong>specific 
+    time period</strong> and for a <strong>carefully chosen set of subreddits</strong>, we expect to highlight previously-discussed behaviors, and 
+    discover additional ones.
   </p>
+  <p>
+    First, we select an interesting group of subreddits.
+  </p>
+  <ul>
+    <li>A typical subreddit part of a clustered behavior (high-volume balanced (hub) - bursty, low-volume victim - mixted, ...) 
+        is chosen and its associated habitual neighbors are identified. To this set of neighbors, we add all subreddits interacting 
+        with the initially chosen subreddit. Note that the union is kept, since some of its neighbors may interact with it. 
+        This selected subreddit is called the <strong>protagonist</strong></li>
+        <img src="{{ '/assets/img/group_selection_scheme.png' | relative_url }}" alt="qcheme" class="center large">
+  </ul>
+  <p>
+    Second, we take a reduced time window.
+  </p>
+  <ul>
+    <li>From daily interactions over the whole time period (January 2014 to April 2017), we assess peaks and compare them with 
+        daily negative interactions over the same period. A period of interest is qualitatively picked.</li>
+  </ul>
+  <p>
+    Third, we assess if the event is toxic or not.
+  </p>
+  <ul>
+    <li>The event is defined as the time series in the selected window of the total negative interactions of all subreddits 
+        within the chosen group. Its nature is assessed from the daily activity of the group, and most active subreddits 
+        (overall and toxic active) are highlighted. From the trend of negative interactions, we decide if this event is a potential 
+        toxic one.</li>
+  </ul>
+  <p>
+    Finally, we analyze the life cycle of the event.
+  </p>
+  <ul>
+    <li>We perform a causal inference analysis using the PCMCI algorithm, reconstructing a causal graph between the most active 
+        subreddits time series and the protagonist. This allows us to identify catalysts and true actors in the event, as well 
+        as attenuators. Furthermore, death of the event is assigned to passive or active.</li>
+  </ul>
+  
+  <div class="box-remark box-collapsible">
+  <div class="box-header">
+    <div>
+      <strong>Remark - </strong><em> What are <em>'global'</em> and <em>'total'</em> interactions?
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+  </div>
+  
+  <div class="box-content">
+    <p>
+    In this section, we will refer to <em>'global'</em> in order to indicate a temporal state, meaning over the whole time 
+    period available in the original dataset. Comparatively, <em>'total'</em> will be used to speak about the sum of interactions over 
+    subreddits (spatial meaning). This is made to avoid confusion between total interactions and global interactions.
+  </p>
+  </div>
+  </div>
+
+  <p>
+    Here below you will find the results for each Case Study, where the protagonists are:
+  </p>
+  <ol>
+    <li>bettersubredditdrama (Cluster 0: Moderate-Volume aggressors)</li>
+    <li>science (Cluster 1: Moderate-Volume victim-leaning)</li>
+    <li>drama (Cluster 2: High-Volume balanced hub)</li>
+  </ol>
+  <p>
+    Note also that the fourth cluster was not explored as a case-study as it is low-volume, and therefore the associated time 
+    series contain less exploitable data.
+  </p>
+  <p>
+    <strong>Click on the red pins on the map to explore each case.</strong>
+  </p>
+
+
   
   <!-- Carte interactive avec épingles -->
   <div class="case-map-container">

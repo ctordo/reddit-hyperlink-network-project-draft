@@ -89,13 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
           content.classList.add('active');
         });
         
-        // Scroll smooth vers le contenu
-        const caseContainer = document.getElementById('case-container');
-        if (caseContainer) {
-          setTimeout(() => {
-            caseContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
       });
     });
     

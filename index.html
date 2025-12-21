@@ -671,10 +671,33 @@ sections:
   </div>
   </div>
 
-  <h4>TRUC DE CEDRIC</h4>
+  <h4>Clustering Preprocessing</h4>
   <p>
-    truc de cedric
+    Before we could catalogue “variants” of toxicity, we had to do what any careful medical unit would do: discard unreliable 
+    samples and calibrate every instrument. Not every island has the same exposure: some see a handful of toxic encounters, others 
+    are ports where toxicity arrives daily. If we cluster raw measurements, K-Means mostly rediscovers size. So we preprocess to reveal 
+    behavioral variants, how toxicity persists, spikes, and travels. We apply four essentials: filter sparse islands, clean edge cases, 
+    tame outliers, and standardize units.
   </p>
+
+
+<div class="box-remark box-collapsible">
+  <div class="box-header">
+    <div>
+      <strong>Remark - </strong>Learn more about features used for clustering:
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+  </div>
+  
+  <div class="box-content">
+    <ul>
+        <li>Low-activity filter: keep only subreddits with at least 10 toxic interactions, to avoid unstable temporal metrics.</li>
+        <li>Log compression (heavy-tailed counts/spans/degrees): X' = log(1 + X).</li>
+        <li>Winsorization (bounded percentages): cap extreme values to limit leverage. Mega flag: mark the top 1% on raw activity/degree 
+            as <code>is_mega</code>. Standard scaling: (X − µ) / σ so units contribute comparably.</li>
+    </ul>
+  </div>
+  </div>
 
   <h4>Reduction through PCA</h4>
 
@@ -748,6 +771,30 @@ sections:
         quality (silhouette ≈ 0.4), reasonable balance, and excellent stability (94% consistency across runs). Four distinct toxicity 
         variants, each representing a genuine behavioral archetype.
     </p>
+
+  <h4>Confirming the Variants (Cluster Validation)</h4>
+  <p>
+    Once clusters emerge, we treat them like a first diagnosis: plausible, but not yet proven. We validate from two angles: 
+    geometry (are clusters compact and separated?) and evidence (do  clusters truly differ on the features?).
+  </p>
+
+  <div class="box-remark box-collapsible">
+  <div class="box-header">
+    <div>
+      <strong>Remark - </strong>Confirming clusters through <strong>Validation metrics</strong> (DB, CH, Kruskal–Wallis):
+    </div>
+    <button class="box-toggle" aria-label="Toggle details"></button>
+  </div>
+  
+  <div class="box-content">
+    <ul>
+        <li>Davies–Bouldin (DB): lower is better; penalizes overlap (high within-cluster spread vs. small separation).</li>
+        <li>Calinski–Harabasz (CH): higher is better; rewards strong between-cluster variance relative to within-cluster variance.</li>
+        <li>Kruskal–Wallis H-test: non-parametric feature-by-feature test; checks whether clusters have different distributions.</li>
+        <li>Application of a conservative multiple-testing correction (Bonferroni-style).</li>
+    </ul>
+  </div>
+  </div>
 
   <h4>Results and Interpretation</h4>
 
@@ -825,8 +872,10 @@ sections:
     </ul>
 
     <p>
-    The result of this clustering can be visualized in the following map. This map <strong>is not the geographic representation of Reddit 
-    from the 300-dimensional embeddings</strong>. Instead, it is a virtual, statistical map in which each point represents a subreddit 
+    Together, these propagation styles form a concise map of how toxicity spreads, escalates, and 
+    concentrates across the Reddit archipelago. The result of this clustering can be visualized in the following map. This map <strong>is 
+    not the geographic representation of Reddit from the 300-dimensional embeddings</strong>. 
+    Instead, it is a virtual, statistical map in which each point represents a subreddit 
     positioned according to the similarities in its toxic behavior. Hover on the map to explore how islands reorganized!
   </p>
 
